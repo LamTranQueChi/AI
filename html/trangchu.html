@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Trang Chủ</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/trangchu.css">
+</head>
+<body>
+    <!-- Layout chính -->
+    <div class="main-layout">
+        <!-- Video -->
+        <div class="video-side">
+            <video autoplay
+                   muted
+                   loop
+                   playsinline
+                   class="bg-video">
+                <source src="../assets/video/vdtrangchu.mp4"
+                        type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Nội dung bên phải -->
+        <div class="content-side">
+            <header class="header">
+                <nav class="top-navbar">
+                    <!-- MENU -->
+                    <div class="nav-right">
+                        <a href="trangchu.html">TRANG CHỦ</a>
+                        <a href="gioi-thieu.html">GIỚI THIỆU</a>
+                        <a href="san-pham.html">SẢN PHẨM</a>
+                        <a href="lien-he.html">LIÊN HỆ</a>
+                    </div>
+
+                    <div class="nav-left">
+                        <div class="nav-logo">
+                            <a href="trangchu.html">
+                                <img src="../assets/images/ccr2.png" alt="Logo">
+                            </a>
+                        </div>
+
+                        <!-- icon -->
+                        <div class="nav-icons">
+                            <a href="dang-nhap.html" target="_blank">
+                                <i class="bi bi-person"></i>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="mini-title">
+                        NỘI THẤT HIỆN ĐẠI
+                    </span>
+
+                    <h1>
+                        Tạo Không Gian Sống Trong Mơ Của Bạn
+                    </h1>
+
+                    <p>
+                        Khám phá các bộ sưu tập nội thất và trang trí hiện đại,
+                        mang đến sự ấm áp, tiện nghi và nguồn cảm hứng
+                        cho ngôi nhà của bạn.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="san-pham.html" class="main-btn">
+                            MUA NGAY
+                        </a>
+
+                        <a href="gioi-thieu.html" class="outline-btn">
+                            XEM GIỚI THIỆU
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- BEST SELLER -->
+    <section class="best-seller">
+        <div class="best-header">
+            <h2>
+                SẢN PHẨM BÁN CHẠY
+            </h2>
+        </div>
+
+        <!-- LIST -->
+        <div class="best-product-list" id="bestProductList"></div>
+
+        <!-- BUTTON -->
+        <div class="more-product">
+            <a href="san-pham.html">
+                Xem thêm sản phẩm
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <a href="trangchu.html" class="logo-text">
+                    <h2>CCR</h2>
+                </a>
+                
+                <p>
+                    Mang đến không gian nội thất hiện đại,
+                    tinh tế và đầy cảm hứng cho mọi ngôi nhà.
+                </p>
+            </div>
+
+            <!-- Liên kết -->
+            <div class="footer-box">
+                <h3>Liên Kết</h3>
+                <a href="trangchu.html">Trang Chủ</a>
+                <a href="gioi-thieu.html">Giới Thiệu</a>
+                <a href="san-pham.html">Sản Phẩm</a>
+                <a href="lien-he.html">Liên Hệ</a>
+            </div>
+
+            <!-- Thông tin -->
+            <div class="footer-box">
+                <h3>Thông Tin</h3>
+                <p>Email: noithatccr@gmail.com</p>
+                <p>Hotline: (+84) 123 456 789</p>
+                <p>Thành phố Trà Vinh, tỉnh Vĩnh Long, Việt Nam</p>
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            © 2026 Nội Thất CCR. Designed for modern living.
+        </div>
+
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/data.js"></script>
+    <script src="../js/trangchu.js"></script>
+</body>
+</html>

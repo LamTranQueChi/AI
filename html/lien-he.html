@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Liên Hệ</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/lien-he.css">
+
+</head>
+<body>      
+    <!-- BANNER -->
+    <section class="contact-banner">
+        <!-- BACKGROUND -->
+        <img src="../assets/images/nenlienhe.png"
+            class="bg-image"
+            alt="background">
+        
+        <div class="overlay">
+            <!-- HEADER -->
+            <header class="header">
+                <nav class="top-navbar">
+                    <div class="nav-left">
+                        <!-- LOGO -->
+                        <div class="nav-logo">
+                            <a href="trangchu.html">
+                                <img src="../assets/images/ccr2.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <a href="trangchu.html">
+                            TRANG CHỦ
+                        </a>
+
+                        <a href="gioi-thieu.html">
+                            GIỚI THIỆU
+                        </a>
+
+                        <a href="san-pham.html">
+                            SẢN PHẨM
+                        </a>
+
+                        <a href="lien-he.html">
+                            LIÊN HỆ
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- content -->
+            <div class="contact-container">
+                <h1 class="title">
+                    LIÊN HỆ ĐẶT HÀNG
+                </h1>
+                <p class="subtitle">
+                    Điền thông tin để CCR tư vấn và hỗ trợ đặt hàng nhanh nhất
+                </p>
+                <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text"
+                                class="form-control"
+                                placeholder="HỌ TÊN*"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text"
+                                class="form-control"
+                                placeholder="SỐ ĐIỆN THOẠI*"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="email"
+                                class="form-control"
+                                placeholder="ĐỊA CHỈ EMAIL CỦA BẠN*"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text"
+                                class="form-control"
+                                id="product-input"
+                                placeholder="SẢN PHẨM BẠN MUỐN MUA*"
+                                required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <input type="number"
+                                class="form-control"
+                                placeholder="SỐ LƯỢNG*"
+                                required>
+                        </div>
+                        
+
+                        <div class="mb-4">
+                            <textarea class="form-control"
+                                    rows="5"
+                                    placeholder="YÊU CẦU / GHI CHÚ"
+                                    required></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="submit-btn">
+                                GỬI 
+                            </button>
+                        </div>
+                </form>
+                <!-- Thông tin liên hệ -->
+                <div class="contact-info">
+                    <h3> THÔNG TIN LIÊN HỆ</h3>
+                    <div class="info-row">
+                        <span>Địa Chỉ</span>
+                        <p>Thành phố Trà Vinh, tỉnh Vĩnh Long, Việt Nam</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Hotline:</span>
+                        <p>(+84) 123 456 789</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Email</span>
+                        <p>ccr@gmail.com</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Website</span>
+                        <p>www.noithatccr.com</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+     </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <a href="trangchu.html" class="logo-text">
+                    <h2>CCR</h2>
+                </a>
+
+                <p>
+                    Mang đến không gian nội thất hiện đại,
+                    tinh tế và đầy cảm hứng cho mọi ngôi nhà.
+                </p>
+            </div>
+
+            <!-- Liên kết -->
+            <div class="footer-box">
+                <h3>Liên Kết</h3>
+                <a href="trangchu.html">Trang Chủ</a>
+                <a href="gioi-thieu.html">Giới Thiệu</a>
+                <a href="san-pham.html">Sản Phẩm</a>
+                <a href="lien-he.html">Liên Hệ</a>
+            </div>
+
+            <!-- Thông tin -->
+            <div class="footer-box">
+                <h3>Thông Tin</h3>
+                <p>Email: noithatccr@gmail.com</p>
+                <p>Hotline: (+84) 123 456 789</p>
+                <p>Thành phố Trà Vinh, tỉnh Vĩnh Long, Việt Nam</p>
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            © 2026 Nội Thất CCR. Designed for modern living.
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="../js/lien-he.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="../css/dang-nhap.css">
+</head>
+<body>
+    <div class="xacthuc-wrapper">
+
+        <!-- LOGIN -->
+        <div class="xacthuc-box"
+            id="loginBox">
+
+            <form>
+
+                <h2>CCR</h2>
+                <h3>Đăng nhập</h3>
+                
+                <div class="input-group">
+                    <input type="email"
+                        placeholder="Nhập email"
+                        required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password"
+                        placeholder="Nhập mật khẩu"
+                        required>
+                </div>
+
+                <div class="xacthuc-links">
+                    <button type="button"
+                            id="showForgot">
+                        Quên mật khẩu?
+                    </button>
+
+                    <a href="dang-ky.html">
+                        Đăng ký
+                    </a>
+                </div>
+
+                <button type="submit"
+                        class="xacthuc-btn">
+                    Đăng nhập
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- FORGOT -->
+        <div class="xacthuc-box"
+            id="forgotBox">
+            <form>
+
+                <h2>CCR</h2>
+                <h3>Khôi phục mật khẩu</h3>
+
+                <div class="input-group">
+                    <i class="bi bi-envelope"></i>
+                    <input type="email"
+                        placeholder="Nhập email"
+                        required>
+                </div>
+
+                <button type="submit"
+                        class="xacthuc-btn">
+                    Gửi liên kết
+                </button>
+
+                <div class="back-login">
+                    <button type="button"
+                            id="backLogin">
+                        Quay lại đăng nhập
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<script src="../js/dang-nhap.js"></script>
+
+</body>
+</html>
