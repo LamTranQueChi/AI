@@ -108,54 +108,6 @@ if(product)
     quantityBox.className = "quantity-box";
 
 
-    // Text
-    const quantityLabel = document.createElement("span");
-    quantityLabel.innerText = "Số lượng";
-
-
-    // Nút trừ
-    const minusBtn = document.createElement("button");
-    minusBtn.innerText = "-";
-
-
-    // Ô số lượng
-    const quantityInput = document.createElement("input");
-    quantityInput.type = "text";
-    quantityInput.value = 1;
-    quantityInput.readOnly = true;
-
-
-    // Nút cộng
-    const plusBtn = document.createElement("button");
-    plusBtn.innerText = "+";
-
-
-    // Khung control
-    const quantityControl = document.createElement("div");
-    quantityControl.className = "quantity-control";
-
-
-    // Gắn phần tử
-    quantityControl.appendChild(minusBtn);
-    quantityControl.appendChild(quantityInput);
-    quantityControl.appendChild(plusBtn);
-    quantityBox.appendChild(quantityLabel);
-    quantityBox.appendChild(quantityControl);
-
-
-    // Logic tăng giảm
-    let quantity = 1;
-    plusBtn.onclick = function(){
-        quantity++;
-        quantityInput.value = quantity;
-    };
-
-    minusBtn.onclick = function(){
-        if(quantity > 1){
-            quantity--;
-            quantityInput.value = quantity;
-        }
-    };
 
     // Nút mua
     const buyBtn = document.createElement("button");
@@ -172,8 +124,43 @@ if(product)
     const cartBtn = document.createElement("button");
     cartBtn.className = "detail-btn cart-btn";
     cartBtn.innerText = "THÊM GIỎ HÀNG";
-    cartBtn.onclick = function(){
-    alert("Đã thêm vào giỏ hàng thành công!");
+
+    cartBtn.onclick = function ()
+    {
+        let cart =
+            JSON.parse(localStorage.getItem("cart")) || [];
+
+        let found = false;
+
+        for(let i = 0; i < cart.length; i++)
+        {
+            if(cart[i].name == product.name)
+            {
+                cart[i].quantity =
+                    cart[i].quantity += 1;
+
+                found = true;
+                break;
+            }
+        }
+
+        if(found == false)
+        {
+            cart.push({
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            shortDesc: product.shortDesc,
+            quantity: 1
+        });
+        }
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        alert("Đã thêm vào giỏ hàng!");
     };
 
     // Button
@@ -208,6 +195,7 @@ if(product)
     detailContainer.appendChild(card);
 }
 else
+
 {
     const error = document.createElement("h2");
     error.className = "text-center";

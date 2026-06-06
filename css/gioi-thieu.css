@@ -279,7 +279,7 @@ strong{
     position:relative;
     color:white;
     text-decoration:none;
-    font-size:22px;
+    font-size:18px;
     letter-spacing:2px;
     transition:0.3s;
     padding-bottom:6px;
@@ -295,6 +295,11 @@ strong{
     height:2px;
     background:#e7c88a;
     transition:0.35s ;
+}
+
+/* HOVER */
+.nav-right a:hover{
+    color:#e7c88a;
 }
 
 .nav-right a:hover::after{

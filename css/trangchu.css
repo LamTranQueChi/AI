@@ -242,13 +242,15 @@ a{
     transition:0.35s ease;
 }
 
+/* HOVER */
 .nav-right a:hover{
-    color:white;
+    color:#e7c88a;
 }
 
 .nav-right a:hover::after{
     width:100%;
 }
+
 
 /* khung trái */
 .nav-left{
