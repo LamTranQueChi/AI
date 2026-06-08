@@ -360,18 +360,19 @@ a{
 
 @media (max-width:768px){
 
-    /* ===== Layout ===== */
+    /*  Layout */
 
     .main-layout{
         flex-direction:column;
     }
 
-    /* ===== Video ===== */
+    /* Video  */
 
     .video-side{
         width:100%;
         height:220px;
         overflow:hidden;
+        background:url("../assets/Video/vdtrangchu.mp4") center/cover no-repeat;
     }
 
     .bg-video{
@@ -381,14 +382,13 @@ a{
         display:block;
     }
 
-    /* ===== Content ===== */
+    /*Content  */
 
     .content-side{
         width:100%;
     }
 
-    /* ===== Header ===== */
-
+    /* Header*/
     .header{
         padding:15px;
     }
@@ -400,8 +400,6 @@ a{
         align-items:center;
         gap:15px;
     }
-
-    /* Logo + Icon cùng hàng */
 
     .nav-left{
         width:100%;
@@ -431,7 +429,6 @@ a{
     }
 
     /* Menu */
-
     .nav-right{
         width:100%;
         display:flex;
@@ -445,8 +442,6 @@ a{
         font-size:14px;
         letter-spacing:1px;
     }
-
-    /* ===== Hero ===== */
 
     .hero{
         padding:45px 20px;
@@ -489,7 +484,7 @@ a{
         padding:14px;
     }
 
-    /* ===== Best Seller ===== */
+    /*Best Seller  */
 
     .best-seller{
         padding:45px 15px;
@@ -502,8 +497,6 @@ a{
     .best-header h2{
         font-size:26px;
     }
-
-    /* 2 sản phẩm mỗi hàng */
 
     .best-product-list{
         display:grid;
@@ -545,7 +538,7 @@ a{
         font-size:16px;
     }
 
-    /* ===== Footer ===== */
+    /* Footer  */
 
     .footer{
         padding-top:40px;
