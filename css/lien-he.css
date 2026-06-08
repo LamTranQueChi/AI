@@ -254,3 +254,82 @@ textarea.form-control{
 .nav-right a:hover::after{
     width:100%;
 }
+@media (max-width: 768px){
+
+    /* Header */
+    .header{
+        padding: 20px 15px 0;
+    }
+
+    .top-navbar{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-right{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-right a{
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .nav-logo img{
+        height: 60px;
+    }
+
+    /* Contact */
+    .contact-container{
+        width: 100%;
+        padding: 25px;
+    }
+
+    .title{
+        font-size: 24px;
+    }
+
+    .subtitle{
+        font-size: 15px;
+    }
+
+    .form-control{
+        font-size: 15px;
+        height: 50px;
+    }
+
+    textarea.form-control{
+        min-height: 120px;
+    }
+
+    .submit-btn{
+        width: 100%;
+    }
+
+    /* Thông tin liên hệ */
+    .info-row{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .info-row p{
+        text-align: left;
+    }
+
+    /* Footer */
+    .footer-container{
+        grid-template-columns: 1fr;
+        padding: 0 20px 30px;
+    }
+
+    .footer-box h2{
+        font-size: 32px;
+    }
+
+    .footer-box h3{
+        font-size: 20px;
+    }
+}

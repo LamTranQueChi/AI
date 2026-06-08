@@ -357,3 +357,115 @@ a{
     font-weight:700;
     transition:0.3s;
 }
+
+@media (max-width: 768px){
+
+    /* Layout chính */
+    .main-layout{
+        flex-direction: column;
+    }
+
+    .video-side{
+        width: 100%;
+        height: 300px;
+        min-height: auto;
+    }
+
+    .content-side{
+        width: 100%;
+    }
+
+    /* Header */
+    .header{
+        padding: 20px;
+    }
+
+    .top-navbar{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-left,
+    .nav-right{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-logo img{
+        height: 60px;
+    }
+
+    .nav-right a{
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    /* Hero */
+    .hero{
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero-content h1{
+        font-size: 42px;
+    }
+
+    .hero-content p{
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .mini-title{
+        font-size: 18px;
+    }
+
+    .hero-buttons{
+        justify-content: center;
+    }
+
+    .main-btn,
+    .outline-btn{
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Sản phẩm bán chạy */
+    .best-seller{
+        padding: 50px 20px;
+    }
+
+    .best-header h2{
+        font-size: 28px;
+    }
+
+    .best-product-list{
+        grid-template-columns: 1fr;
+    }
+
+    .best-product-card img{
+        height: 240px;
+    }
+
+    .best-price{
+        font-size: 24px;
+    }
+
+    .more-product a{
+        font-size: 20px;
+    }
+
+    /* Footer */
+    .footer-container{
+        grid-template-columns: 1fr;
+        padding: 0 20px 30px;
+    }
+
+    .footer-box h2{
+        font-size: 32px;
+    }
+
+    .footer-box h3{
+        font-size: 20px;
+    }
+}

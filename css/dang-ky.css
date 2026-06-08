@@ -99,3 +99,44 @@ form textarea{
     color: #d4a017;
     font-weight: bold;
 }
+
+@media (max-width: 768px){
+
+    body{
+        padding: 20px 0;
+    }
+
+    .xacthuc-wrapper{
+        padding: 15px;
+    }
+
+    .xacthuc-box{
+        padding: 20px;
+    }
+
+    .xacthuc-box h2{
+        font-size: 30px;
+    }
+
+    .xacthuc-box h3{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    form input,
+    form select,
+    form textarea{
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .gender{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .xacthuc-btn{
+        padding: 12px;
+        font-size: 16px;
+    }
+}

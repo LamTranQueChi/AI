@@ -233,3 +233,79 @@ color:black;
 border-color:white;
 }
 
+/*dt*/
+@media (max-width: 768px){
+
+    .detail-banner{
+        height: 350px;
+    }
+
+    .header{
+        top: 25px;
+    }
+
+    .top-navbar{
+        gap: 20px;
+    }
+
+    .top-navbar a{
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding-bottom: 8px;
+    }
+
+    .banner-content h1{
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+
+    .banner-content p{
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .detail-section{
+        padding: 60px 15px;
+    }
+
+    .detail-card{
+        padding: 25px;
+    }
+
+    .detail-title{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .detail-price{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .detail-desc{
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .detail-info{
+        padding-left: 0;
+        margin-top: 25px;
+    }
+
+    .detail-image{
+        max-height: 350px;
+    }
+
+    .buy-btn,
+    .cart-btn{
+        width: 100%;
+        min-width: unset;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .back-btn{
+        position: static;
+        margin-bottom: 20px;
+    }
+}
