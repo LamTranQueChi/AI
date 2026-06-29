@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Đăng ký - AI Public Assistant</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config from Design System -->
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "on-secondary": "#ffffff",
+                            "surface-variant": "#e0e3e5",
+                            "surface-container": "#eceef0",
+                            "error-container": "#ffdad6",
+                            "on-secondary-fixed": "#001945",
+                            "tertiary-container": "#916400",
+                            "secondary-container": "#759efd",
+                            "secondary-fixed-dim": "#b0c6ff",
+                            "on-primary-fixed": "#002106",
+                            "on-primary": "#ffffff",
+                            "on-tertiary-fixed": "#281900",
+                            "surface-dim": "#d8dadc",
+                            "primary-container": "#1e7d34",
+                            "tertiary-fixed": "#ffdeac",
+                            "on-tertiary-fixed-variant": "#604100",
+                            "secondary": "#2b5bb5",
+                            "on-tertiary": "#ffffff",
+                            "surface-container-low": "#f2f4f6",
+                            "surface": "#f8f9fb",
+                            "inverse-primary": "#7fdb85",
+                            "inverse-on-surface": "#eff1f3",
+                            "primary-fixed": "#9af89f",
+                            "surface-tint": "#026e27",
+                            "inverse-surface": "#2d3133",
+                            "surface-container-lowest": "#ffffff",
+                            "tertiary-fixed-dim": "#ffba38",
+                            "on-secondary-container": "#00337c",
+                            "background": "#f8f9fb",
+                            "on-tertiary-container": "#ffedd6",
+                            "on-surface": "#191c1e",
+                            "secondary-fixed": "#d9e2ff",
+                            "on-error": "#ffffff",
+                            "surface-container-highest": "#e0e3e5",
+                            "on-background": "#191c1e",
+                            "primary": "#006322",
+                            "tertiary": "#714e00",
+                            "on-primary-fixed-variant": "#00531b",
+                            "on-surface-variant": "#3f493e",
+                            "on-secondary-fixed-variant": "#00429c",
+                            "outline": "#6f7a6d",
+                            "on-primary-container": "#c2ffc0",
+                            "on-error-container": "#93000a",
+                            "surface-container-high": "#e6e8ea",
+                            "primary-fixed-dim": "#7fdb85",
+                            "error": "#ba1a1a",
+                            "surface-bright": "#f8f9fb",
+                            "outline-variant": "#bfcaba"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "gutter": "16px",
+                            "base-unit": "4px",
+                            "margin-mobile": "16px",
+                            "margin-desktop": "24px",
+                            "container-max": "1440px"
+                        },
+                        "fontFamily": {
+                            "headline-md": ["Inter"],
+                            "label-md": ["Inter"],
+                            "body-md": ["Inter"],
+                            "headline-sm": ["Inter"],
+                            "headline-lg": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "headline-lg-mobile": ["Inter"]
+                        },
+                        "fontSize": {
+                            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                            "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                            "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                            "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+                        }
+                    }
+                }
+            }
+        </script>
+        <style>
+                .material-symbols-outlined {
+                    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+                }
+        </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex min-h-screen">
+    
+    <!-- Left Column: Branding (Hidden on mobile) -->
+    <div class="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-surface-container-low relative overflow-hidden">
+    
+        <!-- Decorative abstract background -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none" data-alt="A subtle, minimalist abstract background pattern in light grey and muted green tones, featuring clean geometric lines and curves that convey a sense of modern technology, transparency, and structure. High-key lighting, corporate modern aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6VRbZDd6nf-7-iqrPzM16DlKXezVuSfiUwkiYOqBsKgOOkGTxZ2xN3dVfzHLbw1RSoRi6duelM-3cvQDVpvLZt4NzUfHsqZEh5_fB5eCM0EZLIG-IgEK_6lD26c0sWrZJGqENeg20pz5CqclbYodw46EEGLLyIFpcDdee9i9E7M2_MT9I7WQNhn_so0lX4oB-4h9dWb6PUSxe-naHXls0dTUx_kweXtkid6CpE7FIuDfNTpNOy953Mq0xsh5bJMDoft6CV7CsUR4')"></div>
+            <div class="relative z-10 flex flex-col gap-6 max-w-md">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-[32px]">smart_toy</span>
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface">AI Public Assistant</h1>
+                </div>
+               
+                <div>
+                    <p class="font-headline-md text-headline-md text-on-surface-variant">Trợ lý AI hỗ trợ dịch vụ công</p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mt-4">Nền tảng ứng dụng công nghệ thông minh, mang đến trải nghiệm làm thủ tục hành chính dễ dàng, thân thiện và chính xác cho mọi công dân.</p>
+                </div>
+                
+                <ul class="flex flex-col gap-4 mt-8">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+                        <span class="font-body-md text-body-md text-on-surface">Minh bạch, Nhanh chóng &amp; Hiện đại</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-0.5">shield_locked</span>
+                        <span class="font-body-md text-body-md text-on-surface">Bảo mật cấp độ cao</span>
+                    </li>
+                    
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-0.5">bolt</span>
+                        <span class="font-body-md text-body-md text-on-surface">Xử lý tự động</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="relative z-10 font-label-md text-label-md text-on-surface-variant">
+                © 2024 AI Public Assistant. Hệ thống thử nghiệm.
+            </div>
+        </div>
+        
+        <!-- Right Column: Registration Form -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-surface-container-lowest shadow-sm lg:shadow-none z-10">
+            <div class="w-full max-w-[420px]">
+                
+                <!-- Mobile Branding Header (Only visible on small screens) -->
+                <div class="flex lg:hidden flex-col items-center mb-8 gap-2">
+                    <span class="material-symbols-outlined text-primary text-[40px]">smart_toy</span>
+                    <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface text-center">AI Public Assistant</h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant text-center">Trợ lý AI hỗ trợ dịch vụ công</p>
+                </div>
+                
+                <div class="mb-8">
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Đăng ký tài khoản</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Vui lòng điền thông tin để tạo tài khoản mới.</p>
+                </div>
+                
+                <form class="flex flex-col gap-5">
+                    
+                    <!-- Họ và tên -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-md text-label-md text-on-surface" for="fullname">Họ và tên</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">person</span>
+                            </div>
+                            <input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="fullname" placeholder="Nhập họ và tên" required="" type="text"/>
+                        </div>
+                    </div>
+                        
+                    <!-- Email -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-md text-label-md text-on-surface" for="email">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">mail</span>
+                            </div>
+                            <input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="email" placeholder="example@email.com" required="" type="email"/>
+                        </div>
+                    </div>
+                
+                    <!-- Số điện thoại -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-md text-label-md text-on-surface" for="phone">Số điện thoại</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">phone</span>
+                            </div>
+                            <input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="phone" placeholder="Nhập số điện thoại" required="" type="tel"/>
+                        </div>
+                    </div>
+                
+                    <!-- Mật khẩu -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-md text-label-md text-on-surface" for="password">Mật khẩu</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock</span>
+                            </div>
+                            <input class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="password" placeholder="Nhập mật khẩu" required="" type="password"/>
+                            <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface" type="button">
+                                <span class="material-symbols-outlined text-[20px]">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Xác nhận mật khẩu -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-md text-label-md text-on-surface" for="confirm_password">Xác nhận mật khẩu</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock_reset</span>
+                            </div>
+                            <input class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="confirm_password" placeholder="Nhập lại mật khẩu" required="" type="password"/>
+                        </div>
+                    </div>
+                
+                    <div class="pt-2">
+                        <button class="w-full py-3 px-4 bg-primary hover:bg-surface-tint text-on-primary font-headline-sm text-headline-sm rounded-lg transition-colors shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-center gap-2" type="submit">
+                            Đăng ký tài khoản
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 flex items-center gap-4">
+                    <div class="flex-1 h-px bg-outline-variant"></div>
+                    <span class="font-label-md text-label-md text-on-surface-variant">HOẶC</span>
+                    <div class="flex-1 h-px bg-outline-variant"></div>
+                </div>
+                
+                <div class="mt-6">
+                    <a
+                        href="https://universal.vneid.gov.vn/"
+                        class="w-full py-3 px-4 bg-surface-container border border-outline-variant hover:bg-surface-variant text-on-surface font-headline-sm text-headline-sm rounded-lg transition-colors flex items-center justify-center gap-3">
+
+                        <span class="material-symbols-outlined text-[20px] text-primary">
+                            fingerprint
+                        </span>
+
+                        Hoặc đăng ký nhanh qua VNeID
+                    </a>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Đã có tài khoản? 
+                        <a href="dangnhap.html" class="text-primary hover:underline font-headline-sm text-headline-sm ml-1" href="#">Đăng nhập ngay</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

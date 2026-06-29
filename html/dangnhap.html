@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Đăng nhập - AI Public Assistant</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+    </style>
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "surface-container-lowest": "#ffffff",
+                            "surface-bright": "#f8f9fb",
+                            "primary-fixed": "#9af89f",
+                            "inverse-surface": "#2d3133",
+                            "on-primary-fixed-variant": "#00531b",
+                            "on-primary-fixed": "#002106",
+                            "on-primary": "#ffffff",
+                            "surface-container": "#eceef0",
+                            "on-surface-variant": "#3f493e",
+                            "on-secondary-fixed": "#001945",
+                            "inverse-primary": "#7fdb85",
+                            "surface-variant": "#e0e3e5",
+                            "on-error-container": "#93000a",
+                            "surface": "#f8f9fb",
+                            "tertiary-container": "#916400",
+                            "on-tertiary": "#ffffff",
+                            "secondary": "#2b5bb5",
+                            "background": "#f8f9fb",
+                            "tertiary-fixed": "#ffdeac",
+                            "outline-variant": "#bfcaba",
+                            "on-secondary-container": "#00337c",
+                            "tertiary-fixed-dim": "#ffba38",
+                            "tertiary": "#714e00",
+                            "on-tertiary-fixed-variant": "#604100",
+                            "error": "#ba1a1a",
+                            "surface-container-highest": "#e0e3e5",
+                            "on-secondary-fixed-variant": "#00429c",
+                            "secondary-container": "#759efd",
+                            "on-secondary": "#ffffff",
+                            "surface-dim": "#d8dadc",
+                            "on-error": "#ffffff",
+                            "on-tertiary-fixed": "#281900",
+                            "primary-fixed-dim": "#7fdb85",
+                            "primary": "#006322",
+                            "secondary-fixed": "#d9e2ff",
+                            "on-background": "#191c1e",
+                            "on-primary-container": "#c2ffc0",
+                            "inverse-on-surface": "#eff1f3",
+                            "primary-container": "#1e7d34",
+                            "surface-tint": "#026e27",
+                            "surface-container-high": "#e6e8ea",
+                            "on-surface": "#191c1e",
+                            "outline": "#6f7a6d",
+                            "error-container": "#ffdad6",
+                            "secondary-fixed-dim": "#b0c6ff",
+                            "on-tertiary-container": "#ffedd6",
+                            "surface-container-low": "#f2f4f6"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "margin-mobile": "16px",
+                            "margin-desktop": "24px",
+                            "gutter": "16px",
+                            "container-max": "1440px",
+                            "base-unit": "4px"
+                        },
+                        "fontFamily": {
+                            "headline-lg": ["Inter", "sans-serif"],
+                            "headline-sm": ["Inter", "sans-serif"],
+                            "body-lg": ["Inter", "sans-serif"],
+                            "label-md": ["Inter", "sans-serif"],
+                            "headline-lg-mobile": ["Inter", "sans-serif"],
+                            "headline-md": ["Inter", "sans-serif"],
+                            "body-md": ["Inter", "sans-serif"]
+                        },
+                        "fontSize": {
+                            "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                            "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                            "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                        }
+                    }
+                }
+            }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex flex-col md:flex-row">
+    
+    <!-- Left Panel: Branding & Imagery (Hidden on Mobile) -->
+    <div class="hidden md:flex flex-col w-1/2 bg-surface-container-low border-r border-outline-variant relative overflow-hidden">
+        
+        <!-- Background Image/Pattern -->
+        <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" data-alt="A clean, abstract architectural visualization of a modern government building interior. Bright white light-mode aesthetic with soft geometric shadows. Subtle hints of technology integration, like glowing data nodes or digital screens integrated into clean white walls. The overarching mood is secure, professional, transparent, and technologically advanced, fitting for a modern public service portal. Use a palette of pristine whites, light greys, and minimal green accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC601R1hijr8I7In5IGrAk2nP1uW1efv6QvpRg2bUxyE7_ijsYI_zumJMDUg438fVpOHqVSoNPZHrz3EqrLG-k_qBnWPybg6OThLf_TLtO9-QQRTuON1hvdKccaHop5vvzFGjqHzWUa0xBfZp-3lFYxR-t6vdtqK3o813NW5TmNg84Ix2tJ0Movwv681q5-tLyT82d5peTjW9QyNKdjaSxPUO-bEViQHywNEHyGGOB3xhGB1Jodv-Z9ARoNU4Elbt_FF5OQ-6W8v58')">
+        </div>  
+        
+        <!-- Gradient overlay for text readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-surface-container-low/80 via-surface-container-low/40 to-surface-container-low z-0">
+        </div>
+        
+        <div class="relative z-10 p-12 flex flex-col h-full justify-between">
+            <!-- Logo area -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                    <span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                </div>
+                        
+                <div>
+                    <h1 class="font-headline-md text-headline-md text-primary">AI Public Assistant</h1>
+                    <p class="font-label-md text-label-md text-on-surface-variant">Trợ lý AI hỗ trợ dịch vụ công</p>
+                </div>
+            </div>
+                    
+            <!-- Value Proposition -->
+            <div class="max-w-md">
+                <h2 class="font-headline-lg text-headline-lg mb-4 text-on-surface">Minh bạch, Nhanh chóng &amp; Hiện đại</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                    Trải nghiệm dịch vụ hành chính công thế hệ mới với sự hỗ trợ đắc lực từ Trí tuệ Nhân tạo. Rút ngắn thời gian xử lý hồ sơ và nâng cao độ chính xác.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 bg-surface-container-lowest/80 backdrop-blur-sm p-4 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+                            <div>
+                                <p class="font-headline-sm text-headline-sm">Bảo mật cấp độ cao</p>
+                                <p class="font-label-md text-label-md text-on-surface-variant">Tích hợp VNeID đảm bảo danh tính</p>
+                            </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-surface-container-lowest/80 backdrop-blur-sm p-4 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+                            <div>
+                                <p class="font-headline-sm text-headline-sm">Xử lý tự động</p>
+                                <p class="font-label-md text-label-md text-on-surface-variant">Trợ lý ảo hỗ trợ 24/7</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Right Panel: Login Form -->
+    <div class="w-full md:w-1/2 flex items-center justify-center p-6 sm:p-12 min-h-screen md:min-h-0 bg-surface-bright">
+        <!-- Mobile Logo (Visible only on small screens) -->
+        <div class="md:hidden absolute top-8 left-6 flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined text-sm" data-icon="smart_toy">smart_toy</span>
+            </div>
+            <span class="font-headline-sm text-headline-sm text-primary">AI Public Assistant</span>
+        </div>
+        
+        <div class="w-full max-w-md">
+            <!-- Form Header -->
+            <div class="mb-8 text-center md:text-left">
+                <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2 text-on-surface">Đăng nhập hệ thống</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">Vui lòng xác thực danh tính để tiếp tục xử lý hồ sơ.</p>
+            </div>
+                
+            <!-- Main Login Form -->
+            <form class="space-y-5 bg-surface-container-lowest p-6 sm:p-8 rounded-xl shadow-[0px_2px_8px_rgba(0,0,0,0.04)] border border-outline-variant/50">
+            
+                <!-- Email Input -->
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-1.5" for="email">Email hoặc Số điện thoại</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-outline" data-icon="mail">mail</span>
+                        </div>
+                        <input 
+                            class="w-full pl-10 pr-4 py-2.5 bg-surface rounded-lg border border-outline-variant text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors font-body-md text-body-md" 
+                            id="email" 
+                            type="text"
+                            required 
+                            placeholder="Email hoặc số điện thoại">
+                    </div>
+                </div>
+                    
+                <!-- Password Input -->
+                <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block font-label-md text-label-md text-on-surface-variant" for="password">Mật khẩu</label>
+                        <a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors" href="#">Quên mật khẩu?</a>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-outline" data-icon="lock">lock</span>
+                        </div>
+                        <input class="w-full pl-10 pr-10 py-2.5 bg-surface rounded-lg border border-outline-variant text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors font-body-md text-body-md" id="password" placeholder="••••••••" type="password">
+                        <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface-variant transition-colors focus:outline-none" type="button">
+                            <span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                    
+                <!-- Remember Me (Optional feature often found on logins) -->
+                <div class="flex items-center">
+                    <input class="h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface cursor-pointer" id="remember" type="checkbox">
+                    <label class="ml-2 block font-body-md text-body-md text-on-surface-variant cursor-pointer" for="remember">
+                        Ghi nhớ thiết bị này
+                    </label>
+                </div>
+
+                <!-- Primary Login Button -->
+                <button
+                    id="loginBtn" 
+                    class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm py-3 rounded-lg hover:bg-primary-container hover:shadow-md transition-all active:scale-[0.98]" 
+                    type="button">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="flex items-center my-6">
+                <div class="flex-grow border-t border-outline-variant"></div>
+                <span class="flex-shrink-0 mx-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Hoặc xác thực nhanh qua</span>
+                <div class="flex-grow border-t border-outline-variant"></div>
+            </div>
+                
+            <!-- VNeID Section -->
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/20 shadow-sm hover:shadow-md transition-shadow">
+                <!-- VNeID Section -->
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/20 shadow-sm hover:shadow-md transition-shadow">
+
+                <a
+                    href="https://sso.dancuquocgia.gov.vn/auth?response_type=code&redirect_uri=https%3A%2F%2Fdichvucong.bocongan.gov.vn%2Fhethong%2Fsso%2Fvneid&client_id=sso-v01-dvc-web&nonce=a134fad1ba5b78abf7c9f7b9feef36d11372ad04fd55bb38b84bcd8e7d129adf&state=1b3d5fb0437440d3379aa8025602fb34d234e96ec86c708d7df325663fa9241d&scope=openid"
+                    class="w-full flex items-center justify-center gap-3 bg-surface border border-outline-variant hover:bg-surface-variant text-on-surface font-headline-sm text-headline-sm py-3 px-4 rounded-lg transition-colors group">
+
+                    <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
+                        style="font-variation-settings: 'FILL' 1;">
+                        fingerprint
+                    </span>
+
+                    <span>Đăng nhập bằng VNeID</span>
+                </a>
+
+                <p class="font-label-md text-label-md text-on-surface-variant text-center mt-3 flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">verified_user</span>
+                    Được bảo mật bởi hệ thống VNPT eKYC
+                </p>
+
+            <!-- Registration Link -->
+            <div class="mt-8 text-center font-body-md text-body-md text-on-surface-variant">
+                Chưa có tài khoản công dân? 
+                <a href="dangky.html" class="font-headline-sm text-headline-sm text-primary hover:underline underline-offset-4" href="#">Đăng ký ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/dangnhap.js"></script>
+</body>
+</html>

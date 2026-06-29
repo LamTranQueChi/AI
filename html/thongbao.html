@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Public Assistant - Thông báo</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="stylesheet" href="../css/thongbao.css">
+
+    <script src="../js/tailwind-config.js"></script>
+
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT + CHAT -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- MAIN -->
+            <main class="flex-1 overflow-y-auto p-6">
+
+                <!-- HEADER -->
+                <section class="mb-8">
+
+                    <h1 class="text-3xl font-bold mb-2">
+                        Thông báo
+                    </h1>
+
+                    <p class="text-on-surface-variant">
+                        Theo dõi các thông báo từ hệ thống, trợ lý AI và tiến trình xử lý hồ sơ.
+                    </p>
+
+                </section>
+
+                <!-- FILTER -->
+                <section class="mb-8">
+
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+
+                        <div class="flex flex-wrap gap-3">
+
+                            <button class="btn-primary filter-btn active">
+                                Tất cả
+                            </button>
+
+                            <button class="btn-outline filter-btn">
+                                Hệ thống
+                            </button>
+
+                            <button class="btn-outline filter-btn">
+                                Trợ lý AI
+                            </button>
+
+                            <button class="btn-outline filter-btn">
+                                Hồ sơ
+                            </button>
+
+                        </div>
+
+                        <button class="btn-outline">
+
+                            <span class="material-symbols-outlined text-base">
+                                done_all
+                            </span>
+
+                            Đánh dấu tất cả đã đọc
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- DANH SÁCH THÔNG BÁO -->
+                <section id="notification-list"
+                         class="notification-list">
+
+                </section>
+
+                <!-- LOAD MORE -->
+
+                <section class="mt-8 flex justify-center">
+
+                    <button class="btn-outline">
+
+                        <span class="material-symbols-outlined">
+                            expand_more
+                        </span>
+
+                        Tải thêm thông báo
+
+                    </button>
+
+                </section>
+
+                <!-- FOOTER -->
+
+                <div class="mt-10">
+
+                    <div id="footer-container"></div>
+
+                </div>
+
+            </main>
+
+            <!-- CHATBOT -->
+
+            <div id="chat-container"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+
+    <script src="../js/layout.js"></script>
+
+    <script src="../js/thongbao.js"></script>
+
+    <script src="../js/chatbot.js"></script>
+
+</body>
+
+</html>

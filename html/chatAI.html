@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Public Assistant - Trò chuyện với AI</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/chatAI.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    
+
+    <script src="../js/tailwind-config.js"></script>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT -->
+        <main class="flex-1 overflow-hidden p-6">
+
+            <div class="chat-wrapper">
+
+                <!-- Header -->
+                <div class="chat-header">
+
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-3xl">
+                            forum
+                        </span>
+
+                        <div>
+                            <h1>Trò chuyện với AI</h1>
+                            <p>Hỏi đáp thủ tục hành chính nhanh chóng</p>
+                        </div>
+                    </div>
+
+                    <button class="icon-btn">
+                        <span class="material-symbols-outlined">
+                            refresh
+                        </span>
+                    </button>
+
+                </div>
+
+                <!-- Messages -->
+                <div class="chat-messages">
+
+                    <!-- AI -->
+                    <div class="message ai">
+
+                        <div class="avatar">
+                            <span class="material-symbols-outlined">
+                                smart_toy
+                            </span>
+                        </div>
+
+                        <div class="bubble">
+                            Xin chào Quế Chi 👋<br>
+                            Tôi có thể hỗ trợ gì cho bạn hôm nay?
+                        </div>
+
+                    </div>
+
+
+                    <!-- USER -->
+                    <div class="message user">
+
+                        <div class="bubble">
+                            Tôi muốn làm lại CCCD bị mất thì cần chuẩn bị gì?
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI -->
+                    <div class="message ai">
+
+                        <div class="avatar">
+                            <span class="material-symbols-outlined">
+                                smart_toy
+                            </span>
+                        </div>
+
+                        <div class="bubble">
+
+                            <p class="mb-4">
+                                Hồ sơ cần chuẩn bị:
+                            </p>
+
+                            <ul class="check-list">
+
+                                <li>
+                                    Tờ khai căn cước công dân (CC01)
+                                </li>
+
+                                <li>
+                                    Giấy tờ tùy thân khác (nếu có)
+                                </li>
+
+                                <li>
+                                    Giấy xác nhận của công an địa phương
+                                </li>
+
+                            </ul>
+
+                            <div class="suggest-chips">
+
+                                <button>Lệ phí bao nhiêu?</button>
+
+                                <button>Nộp ở đâu?</button>
+
+                                <button>Thời gian xử lý?</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Suggest -->
+                <div class="quick-question">
+
+                    <button>
+                        Làm CCCD cần giấy tờ gì?
+                    </button>
+
+                    <button>
+                        Đăng ký thường trú online
+                    </button>
+
+                </div>
+
+                <!-- Input -->
+                <div class="chat-input">
+
+                    <!-- Đính kèm -->
+                    <button class="input-btn" title="Đính kèm tài liệu">
+
+                        <span class="material-symbols-outlined">
+                            attach_file
+                        </span>
+
+                    </button>
+
+                    <!-- Ô nhập -->
+                    <textarea
+                        id="chatInput"
+                        placeholder="Hỏi AI về thủ tục hành chính..."
+                        rows="1">
+                    </textarea>
+
+                    <!-- Voice -->
+                    <button
+                        id="voiceBtn"
+                        class="input-btn"
+                        title="Trò chuyện bằng giọng nói">
+
+                        <span class="material-symbols-outlined">
+                            mic
+                        </span>
+
+                    </button>
+
+                    <!-- Gửi -->
+                    <button
+                        id="sendBtn"
+                        class="send-btn"
+                        title="Gửi">
+
+                        <span class="material-symbols-outlined">
+                            send
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer -->
+            <div class="mt-6">
+                <div id="footer-container"></div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../js/layout.js"></script>
+    <script src="../js/chatAI.js"></script>
+    <script src="../js/chatbot.js"></script>
+
+</body>
+
+</html>

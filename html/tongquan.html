@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Public Assistant - Tổng quan</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/tongquan.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT + CHAT -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- DASHBOARD -->
+            <main class="flex-1 overflow-y-auto p-6">
+
+                <!-- Greeting -->
+                <section class="mb-8">
+                    
+                    <h1 id="greetingName" class="text-3xl font-bold mb-2">
+                        Xin chào! 👋
+                    </h1>
+
+                    <p class="text-on-surface-variant">
+                        Hôm nay bạn muốn làm gì?
+                    </p>
+                </section>
+
+
+                <!-- QUICK ACTION -->
+                <section
+                    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+
+                    <!-- card -->
+                    <div class="dashboard-card">
+
+                        <div class="card-icon bg-green-100 text-primary">
+                            <span class="material-symbols-outlined">
+                                search
+                            </span>
+                        </div>
+
+                        <h3>Tra cứu dịch vụ</h3>
+
+                        <p>
+                            Tìm thủ tục hành chính phù hợp với nhu cầu
+                        </p>
+
+                        <button class="btn-outline-primary" onclick="location.href='tracuu.html'">
+                            Tra cứu ngay
+                        </button>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon bg-blue-100 text-secondary">
+                            <span class="material-symbols-outlined">
+                                smart_toy
+                            </span>
+                        </div>
+
+                        <h3>Trò chuyện với AI</h3>
+
+                        <p>
+                            Đặt câu hỏi và nhận tư vấn nhanh chóng
+                        </p>
+
+                        <button class="btn-outline-secondary" onclick="location.href='chatAI.html'">
+                            Trò chuyện ngay
+                        </button>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon bg-yellow-100 text-yellow-700">
+                            <span class="material-symbols-outlined">
+                                upload_file
+                            </span>
+                        </div>
+
+                        <h3>Kiểm tra hồ sơ</h3>
+
+                        <p>
+                            Tải giấy tờ để AI kiểm tra tính đầy đủ
+                        </p>
+
+                        <button class="btn-outline-warning" onclick="location.href='kiemtrahoso.html'">
+                            Kiểm tra ngay
+                        </button>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon bg-gray-200">
+                            <span class="material-symbols-outlined">
+                                folder_open
+                            </span>
+                        </div>
+
+                        <h3>Hồ sơ của tôi</h3>
+
+                        <p>
+                            Quản lý và theo dõi hồ sơ đã nộp
+                        </p>
+
+                        <button class="btn-outline" onclick="location.href='hoso.html'">
+                            Xem hồ sơ
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- THỐNG KÊ -->
+                <section class="mb-8">
+
+                    <h2 class="section-title">
+                        Thống kê của bạn
+                    </h2>
+
+                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+
+                        <div class="stat-card">
+                            <h3>18</h3>
+                            <p>Lượt hỏi AI</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>7</h3>
+                            <p>Hồ sơ đã kiểm tra</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>2</h3>
+                            <p>Hồ sơ đang xử lý</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>5</h3>
+                            <p>Hồ sơ hoàn thành</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- GỢI Ý + FAQ -->
+                <section
+                    class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+                    <!-- Gợi ý -->
+                    <div class="content-box">
+
+                        <h2 class="section-title">
+                            Gợi ý cho bạn
+                        </h2>
+
+                        <ul>
+
+                            <li class="list-item">
+                                Cấp lại căn cước công dân khi bị mất
+                            </li>
+
+                            <li class="list-item">
+                                Đăng ký thường trú
+                            </li>
+
+                            <li class="list-item">
+                                Đổi giấy phép lái xe
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- FAQ -->
+                    <div class="content-box">
+
+                        <h2 class="section-title">
+                            Câu hỏi thường gặp
+                        </h2>
+
+                        <ul>
+
+                            <li class="list-item">
+                                Làm thế nào để cấp lại CCCD khi bị mất?
+                            </li>
+
+                            <li class="list-item">
+                                Hồ sơ đăng ký thường trú gồm những gì?
+                            </li>
+
+                            <li class="list-item">
+                                Thời gian xử lý hồ sơ là bao lâu?
+                            </li>
+
+                            <li class="list-item">
+                                Có thể nộp hồ sơ online không?
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+                <!-- Footer -->
+                <div class="mt-10">
+                    <div id="footer-container"></div>
+                </div>
+
+            </main>
+
+            <!-- CHAT -->
+            <div id="chat-container"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../js/layout.js"></script>
+    <script src="../js/tongquan.js"></script>
+    <script src="../js/chatbot.js"></script>
+</body>
+
+</html>

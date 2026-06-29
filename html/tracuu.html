@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Public Assistant - Tra cứu dịch vụ</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet" />
+
+    <!-- CSS dùng chung -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/tracuu.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+
+    <script src="../js/tailwind-config.js"></script>
+
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT -->
+        <main class="flex-1 overflow-y-auto p-6">
+
+            <!-- Header -->
+            <section class="mb-8">
+
+                <h1 class="page-title">
+                    Tra cứu dịch vụ công
+                </h1>
+
+                <p class="page-subtitle">
+                    Tìm kiếm và tra cứu thông tin chi tiết về các thủ tục hành chính.
+                </p>
+
+            </section>
+
+
+            <!-- SEARCH -->
+            <section class="search-box">
+
+                <div class="search-input">
+
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+
+                    <input type="text"
+                           placeholder="Nhập tên thủ tục, từ khóa...">
+
+                    <button>
+                        Tìm kiếm
+                    </button>
+
+                </div>
+
+                <!-- FILTER -->
+                <div class="popular-tags">
+
+                    <span class="label">
+                        Lĩnh vực phổ biến:
+                    </span>
+
+                    <button class="active">
+                        Tất cả
+                    </button>
+
+                    <button>
+                        Căn cước công dân
+                    </button>
+
+                    <button>
+                        Hộ tịch
+                    </button>
+
+                    <button>
+                        Cư trú
+                    </button>
+
+                    <button>
+                        Giao thông
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULT HEADER -->
+            <section class="result-header">
+
+                <p>
+                    Hiển thị <strong>12</strong> kết quả phù hợp
+                </p>
+
+                <select>
+                    <option>Mức độ liên quan</option>
+                    <option>Lượt truy cập nhiều nhất</option>
+                    <option>Mới cập nhật</option>
+                </select>
+
+            </section>
+
+
+            <!-- RESULT GRID -->
+            <section class="result-grid">
+
+                <!-- CARD -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon blue">
+                            <span class="material-symbols-outlined">
+                                badge
+                            </span>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Cấp lại thẻ CCCD khi bị mất
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Căn cước
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            Công an cấp Huyện/Tỉnh
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            50.000 VNĐ
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            15 ngày làm việc
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp / Trực tuyến
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon yellow">
+                            <span class="material-symbols-outlined">
+                                home_work
+                            </span>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Đăng ký thường trú
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Cư trú
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            Công an xã/phường
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            20.000 VNĐ
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            7 ngày làm việc
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tuyến
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon red">
+                            <span class="material-symbols-outlined">
+                                drive_eta
+                            </span>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Đổi giấy phép lái xe
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Giao thông
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            Sở GTVT
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            135.000 VNĐ
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            5 ngày làm việc
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tuyến mức độ 4
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PAGINATION -->
+            <section class="pagination">
+
+                <button>
+                    <span class="material-symbols-outlined">
+                        chevron_left
+                    </span>
+                </button>
+
+                <button class="active">1</button>
+
+                <button>2</button>
+
+                <button>3</button>
+
+                <span>...</span>
+
+                <button>
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </button>
+
+            </section>
+
+
+            <!-- Footer -->
+            <div class="mt-10">
+                <div id="footer-container"></div>
+            </div>
+
+        </main>
+
+        <!-- CHAT -->
+            <div id="chat-container"></div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../js/layout.js"></script>
+    <script src="../js/tracuu.js"></script>
+    <script src="../js/chatbot.js"></script>
+
+</body>
+
+</html>

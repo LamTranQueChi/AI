@@ -1,0 +1,54 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f7fb;
+}
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.label {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.timeline {
+    border-left: 2px solid #d1d5db;
+    padding-left: 18px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 24px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: #2563eb;
+    border-radius: 50%;
+}
+
+.time {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #6b7280;
+}

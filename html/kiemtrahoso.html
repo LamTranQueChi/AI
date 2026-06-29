@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Public Assistant - Kiểm tra hồ sơ</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/kiemtrahoso.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+
+    <script src="../js/tailwind-config.js"></script>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT + CHAT -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- CONTENT -->
+            <main class="flex-1 overflow-y-auto overflow-x-hidden p-6">
+
+                <!-- Header -->
+                <section class="page-header mb-8">
+                    <h1 class="text-3xl font-bold mb-2">
+                        Kiểm tra hồ sơ thông minh
+                    </h1>
+
+                    <p class="text-on-surface-variant">
+                        Tải lên giấy tờ để AI tự động trích xuất thông tin,
+                        đối chiếu độ chính xác và kiểm tra tính hợp lệ hồ sơ.
+                    </p>
+                </section>
+
+                <!-- GRID -->
+                <section class="check-grid w-full">
+
+                    <!-- LEFT -->
+                    <div class="left-panel">
+
+                        <!-- Upload -->
+                        <div class="card upload-card">
+
+                            <div class="upload-zone" id="uploadZone">
+
+                                <input id="fileUpload"
+                                       type="file"
+                                       multiple
+                                       accept=".jpg,.jpeg,.png,.pdf">
+
+                                <span class="material-symbols-outlined upload-icon">
+                                    cloud_upload
+                                </span>
+
+                                <h3>Kéo thả file hoặc click để tải lên</h3>
+
+                                <p>
+                                    Hỗ trợ JPG, PNG, PDF - tối đa 10MB/file
+                                </p>
+
+                                <div class="tags">
+                                    <span>CCCD/CMND</span>
+                                    <span>Sổ hộ khẩu</span>
+                                    <span>Tờ khai</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Processing -->
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <h3>
+                                    <span class="material-symbols-outlined">
+                                        document_scanner
+                                    </span>
+
+                                    Đang xử lý tài liệu (2/3)
+                                </h3>
+
+                                <span class="progress-percent">
+                                    65%
+                                </span>
+
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+
+                            <div class="document-list">
+
+                                <div class="document-item success">
+
+                                    <span class="material-symbols-outlined">
+                                        image
+                                    </span>
+
+                                    <div>
+                                        <strong>CCCD_MatTruoc_QueChi.jpg</strong>
+                                        <small>1.2 MB</small>
+                                    </div>
+
+                                    <span class="status">
+                                        Hoàn tất
+                                    </span>
+
+                                </div>
+
+                                <div class="document-item scanning">
+
+                                    <span class="material-symbols-outlined">
+                                        image
+                                    </span>
+
+                                    <div>
+                                        <strong>CCCD_MatSau_QueChi.jpg</strong>
+                                        <small>Đang trích xuất...</small>
+                                    </div>
+
+                                </div>
+
+                                <div class="document-item pending">
+
+                                    <span class="material-symbols-outlined">
+                                        picture_as_pdf
+                                    </span>
+
+                                    <div>
+                                        <strong>ToKhai_CCCD.pdf</strong>
+                                        <small>Chờ xử lý</small>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="right-panel">
+
+                        <div class="card result-card">
+
+                            <div class="result-header">
+
+                                <h3>
+                                    <span class="material-symbols-outlined">
+                                        fact_check
+                                    </span>
+
+                                    Kết quả phân tích AI
+                                </h3>
+
+                            </div>
+
+                            <!-- Score -->
+                            <div class="confidence-box">
+
+                                <div class="score-circle">
+                                    92%
+                                </div>
+
+                                <div>
+                                    <h4>Độ tin cậy dữ liệu</h4>
+
+                                    <p>
+                                        Hệ thống xác thực thông tin khớp với
+                                        CSDL Quốc gia.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Validation -->
+                            <div class="validation-list">
+
+                                <div class="validation-item success">
+
+                                    <span class="material-symbols-outlined">
+                                        check_circle
+                                    </span>
+
+                                    <div>
+                                        <strong>Chất lượng hình ảnh</strong>
+
+                                        <p>
+                                            Sáng rõ, không bị lóa.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="validation-item success">
+
+                                    <span class="material-symbols-outlined">
+                                        how_to_reg
+                                    </span>
+
+                                    <div>
+                                        <strong>Đối chiếu thông tin</strong>
+
+                                        <p>
+                                            Khớp 100% với VNeID.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="validation-item warning">
+
+                                    <span class="material-symbols-outlined">
+                                        warning
+                                    </span>
+
+                                    <div>
+                                        <strong>Thiếu giấy tờ</strong>
+
+                                        <p>
+                                            Thiếu Giấy xác nhận công an xã/phường.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Suggest -->
+                            <div class="suggest-box">
+
+                                <span class="material-symbols-outlined">
+                                    lightbulb
+                                </span>
+
+                                <div>
+
+                                    <strong>Gợi ý AI</strong>
+
+                                    <p>
+                                        Tải biểu mẫu CC01 và xin xác nhận của địa
+                                        phương trước khi nộp hồ sơ.
+                                    </p>
+
+                                    <button class="download-btn">
+                                        Tải biểu mẫu CC01
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="actions">
+
+                                <button class="btn-outline">
+                                    Lưu nháp
+                                </button>
+
+                                <button class="btn-primary" disabled>
+                                    Chuyển sang nộp hồ sơ
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Footer -->
+                <div class="mt-10">
+                    <div id="footer-container"></div>
+                </div>
+
+            </main>
+
+            <!-- CHAT -->
+            <div id="chat-container"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../js/layout.js"></script>
+    <script src="../js/kiemtrahoso.js"></script>
+    <script src="../js/chatbot.js"></script>
+
+</body>
+
+</html>

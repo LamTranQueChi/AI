@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hồ sơ của tôi</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/hoso.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+
+    
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT + CHAT -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <main class="flex-1 overflow-y-auto p-6">
+
+                <!-- Header -->
+                <section class="mb-8">
+                    <h1 class="text-3xl font-bold mb-2">
+                        Hồ sơ của tôi
+                    </h1>
+
+                    <p class="text-on-surface-variant">
+                        Quản lý thông tin cá nhân và theo dõi hồ sơ dịch vụ công.
+                    </p>
+                </section>
+
+                <!-- Profile -->
+                <section class="profile-card">
+
+                    <div class="avatar-wrapper">
+
+    <img id="avatarPreview"
+         src="https://i.pravatar.cc/150?img=32"
+         class="avatar">
+
+    <div class="avatar-overlay">
+            <span class="material-symbols-outlined">
+                photo_camera
+            </span>
+            <p>Đổi ảnh</p>
+        </div>
+
+        <input
+            type="file"
+            id="avatarInput"
+            accept="image/*"
+            hidden>
+
+    </div>
+
+                    <div class="profile-info">
+                        <h2 id="userName">Lâm Trần Quế Chi</h2>
+
+                        <p>
+                            <span class="material-symbols-outlined">mail</span>
+                            <span id="userEmail">quechi@gmail.com</span>
+                        </p>
+
+                        <p>
+                            <span class="material-symbols-outlined">call</span>
+                            <span id="userPhone">0987654321</span>
+                        </p>
+                    </div>
+
+                    <!--liên kết VNeID -->
+                    <div class="vneid-box">
+
+                        <span id="vneidStatus">
+                            🔴 Chưa liên kết VNeID
+                        </span>
+
+                        <button id="linkVneidBtn" class="btn-primary">
+                            Liên kết ngay
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Tabs -->
+                <section class="tabs-box">
+
+                    <button class="tab-btn active">
+                        Thông tin cá nhân
+                    </button>
+
+                    <button class="tab-btn">
+                        Lịch sử hoạt động
+                    </button>
+
+                    <button class="tab-btn">
+                        Giấy tờ đã lưu
+                    </button>
+
+                </section>
+
+
+                <!-- Statistics -->
+                <section class="mb-8">
+
+                    <h2 class="section-title">
+                        Thống kê cá nhân
+                    </h2>
+
+                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+
+                        <div class="stat-card">
+                            <h3>12</h3>
+                            <p>Tổng hồ sơ</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>7</h3>
+                            <p>Hoàn thành</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>3</h3>
+                            <p>Đang xử lý</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>2</h3>
+                            <p>Bị trả lại</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Personal Info -->
+                <section class="content-box">
+
+                    <h2 class="section-title">
+                        Thông tin cá nhân
+                    </h2>
+
+                    <div class="info-grid">
+
+                        <div class="info-item">
+                            <label>Họ và tên</label>
+                            <span id="profileFullName"></span>
+                        </div>
+
+                        <div class="info-item">
+                            <label>Ngày sinh</label>
+                            <span>20/10/2004</span>
+                        </div>
+
+                        <div class="info-item">
+                            <label>Số CCCD</label>
+                            <span>079xxxxxxxx</span>
+                        </div>
+
+                        <div class="info-item">
+                            <label>Địa chỉ</label>
+                            <span>Trà Vinh</span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Footer -->
+                <div class="mt-10">
+                    <div id="footer-container"></div>
+                </div>
+
+            </main>
+
+            <!-- CHAT -->
+            <div id="chat-container"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../js/layout.js"></script>
+    <script src="../js/hoso.js"></script>
+    <script src="../js/chatbot.js"></script>
+
+</body>
+
+</html>

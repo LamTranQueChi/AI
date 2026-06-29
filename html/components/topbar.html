@@ -1,0 +1,80 @@
+<header
+    class="topbar flex justify-between items-center w-full h-16 px-6 bg-white border-b border-gray-200 sticky top-0 z-40">
+
+    <!-- Mobile -->
+    <div class="flex items-center gap-3 lg:hidden">
+
+        <button class="p-2 rounded-full hover:bg-gray-100">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+        </button>
+
+        <span class="font-bold text-primary">
+            AI Public Assistant
+        </span>
+
+    </div>
+
+
+    <!-- Search -->
+    <div class="hidden lg:flex relative w-full max-w-md">
+
+        <span class="material-symbols-outlined absolute left-3 top-2.5 text-gray-400">
+            search
+        </span>
+
+        <input
+            type="text"
+            placeholder="Tìm kiếm thủ tục, dịch vụ, câu hỏi..."
+            class="w-full h-10 pl-10 pr-4 rounded-full bg-gray-100 border-0 focus:ring-2 focus:ring-green-600">
+
+    </div>
+
+
+    <!-- Right -->
+    <div class="flex items-center gap-4">
+
+
+        <!-- Notification -->
+        <button
+            class="relative p-2 rounded-full hover:bg-gray-100"
+            onclick="window.location.href='thongbao.html'">
+
+            <span class="material-symbols-outlined">
+                notifications
+            </span>
+
+            <span
+                class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full">
+            </span>
+
+        </button>
+
+
+        <!-- Profile -->
+        <div
+            class="flex items-center gap-3 pl-4 border-l border-gray-300">
+
+            <img
+    id="topbarAvatar"
+    src="https://i.pravatar.cc/100"
+    class="w-10 h-10 rounded-full object-cover">
+
+            <div class="hidden md:block">
+
+                <p id="topbarName" class="font-semibold text-sm">
+                    Người dùng
+                </p>
+
+                <p class="text-xs text-gray-500">
+                    Công dân
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>

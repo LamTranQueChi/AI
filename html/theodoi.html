@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo dõi hồ sơ - AI Public Assistant</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Tailwind config -->
+    <script src="../js/tailwind-config.js"></script>
+
+    <!-- CSS dùng chung -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/theodoi.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- MAIN -->
+    <div class="flex-1 lg:ml-72 flex flex-col h-screen">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- CONTENT + CHAT -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- MAIN CONTENT -->
+            <main class="flex-1 overflow-y-auto p-6">
+
+                <!-- Header -->
+                <section class="mb-8">
+
+                    <h1 class="text-3xl font-bold mb-2">
+                        Theo dõi hồ sơ
+                    </h1>
+
+                    <p class="text-on-surface-variant">
+                        Kiểm tra tiến độ và lịch sử xử lý các hồ sơ đã nộp.
+                    </p>
+
+                </section>
+
+                <!-- Filter -->
+                <section class="mb-8">
+
+                    <div class="flex flex-wrap gap-3">
+
+                        <button class="btn-primary">
+                            Tất cả
+                        </button>
+
+                        <button class="btn-outline">
+                            Đang xử lý
+                        </button>
+
+                        <button class="btn-outline">
+                            Đã hoàn thành
+                        </button>
+
+                        <button class="btn-outline">
+                            Bị trả lại
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- Nội dung -->
+                <section class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+
+                    <!-- LEFT -->
+                    <div class="xl:col-span-2 space-y-6">
+
+                        <div class="card">
+
+                            <div class="status-badge">
+                                Đang xử lý
+                            </div>
+
+                            <h3 class="text-xl font-semibold mt-3">
+                                Cấp lại CCCD do bị mất
+                            </h3>
+
+                            <p class="text-on-surface-variant">
+                                HS00123 • Công an Quận Cầu Giấy
+                            </p>
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-6">
+
+                                <div>
+                                    <p class="label">
+                                        Ngày nộp
+                                    </p>
+                                    <p>12/10/2023</p>
+                                </div>
+
+                                <div>
+                                    <p class="label">
+                                        Ngày hẹn
+                                    </p>
+                                    <p class="text-secondary">
+                                        26/10/2023
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p class="label">
+                                        Nhận
+                                    </p>
+                                    <p>Bưu điện</p>
+                                </div>
+
+                                <div>
+                                    <p class="label">
+                                        Lệ phí
+                                    </p>
+                                    <p>Đã thanh toán</p>
+                                </div>
+
+                            </div>
+
+                            <div class="flex justify-end gap-3 mt-8">
+
+                                <button class="btn-outline">
+                                    Hủy hồ sơ
+                                </button>
+
+                                <button class="btn-primary">
+                                    Xem chi tiết
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card opacity-80">
+
+                            <h3 class="font-semibold">
+                                Đăng ký kết hôn
+                            </h3>
+
+                            <p class="text-on-surface-variant">
+                                HS00089
+                            </p>
+
+                            <div class="flex justify-between mt-3 text-sm">
+
+                                <span>
+                                    Nộp: 05/09/2023
+                                </span>
+
+                                <span>
+                                    Hoàn thành: 15/09/2023
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="card">
+
+                        <h3 class="font-semibold mb-5">
+                            Lịch sử cập nhật
+                        </h3>
+
+                        <div class="timeline">
+
+                            <div class="timeline-item">
+
+                                <span class="time">
+                                    Hôm nay 14:30
+                                </span>
+
+                                <p>
+                                    Đang xử lý tại phòng chuyên môn
+                                </p>
+
+                            </div>
+
+                            <div class="timeline-item">
+
+                                <span class="time">
+                                    13/10/2023
+                                </span>
+
+                                <p>
+                                    Hồ sơ hợp lệ
+                                </p>
+
+                            </div>
+
+                            <div class="timeline-item">
+
+                                <span class="time">
+                                    12/10/2023
+                                </span>
+
+                                <p>
+                                    Tiếp nhận hồ sơ
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Footer -->
+                <div class="mt-10">
+                    <div id="footer-container"></div>
+                </div>
+
+            </main>
+
+            <!-- CHAT -->
+            <div id="chat-container"></div>
+
+        </div>
+
+    </div>
+
+    <script src="../js/layout.js"></script>
+    <script src="../js/theodoi.js"></script>
+    <script src="../js/chatbot.js"></script>
+
+</body>
+
+</html>
