@@ -46,3 +46,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// VNeID (dự kiến)
+const futureVneidBtn = document.getElementById("futureVneidLoginBtn");
+
+if (futureVneidBtn) {
+
+    futureVneidBtn.addEventListener("click", () => {
+
+        alert(
+`Phiên bản hiện tại là MVP.
+
+Đăng nhập bằng VNeID là tính năng dự kiến và sẽ được triển khai khi hệ thống được cơ quan có thẩm quyền cấp quyền kết nối với VNeID.`
+        );
+
+    });
+
+}
+
+// Hiện / Ẩn mật khẩu
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const passwordIcon = document.getElementById("passwordIcon");
+
+if (togglePassword) {
+
+    togglePassword.addEventListener("click", () => {
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordIcon.textContent = "visibility";
+        } else {
+            passwordInput.type = "password";
+            passwordIcon.textContent = "visibility_off";
+        }
+
+    });
+
+}

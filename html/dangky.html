@@ -11,6 +11,8 @@
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="../css/dangky.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Tailwind Config from Design System -->
@@ -203,33 +205,92 @@
                 
                     <!-- Mật khẩu -->
                     <div class="flex flex-col gap-1.5">
-                        <label class="font-label-md text-label-md text-on-surface" for="password">Mật khẩu</label>
+
+                        <label
+                            class="font-label-md text-label-md text-on-surface"
+                            for="password">
+                            Mật khẩu
+                        </label>
+
                         <div class="relative">
+
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock</span>
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">
+                                    lock
+                                </span>
                             </div>
-                            <input class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="password" placeholder="Nhập mật khẩu" required="" type="password"/>
-                            <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface" type="button">
-                                <span class="material-symbols-outlined text-[20px]">visibility_off</span>
+
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Nhập mật khẩu"
+                                required
+                                class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow"
+                            >
+
+                            <button
+                                id="togglePassword"
+                                type="button"
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface">
+
+                                <span
+                                    id="passwordIcon"
+                                    class="material-symbols-outlined text-[20px]">
+                                    visibility_off
+                                </span>
+
                             </button>
+
                         </div>
+
                     </div>
         
                     <!-- Xác nhận mật khẩu -->
                     <div class="flex flex-col gap-1.5">
-                        <label class="font-label-md text-label-md text-on-surface" for="confirm_password">Xác nhận mật khẩu</label>
+
+                        <label
+                            class="font-label-md text-label-md text-on-surface"
+                            for="confirm_password">
+                            Xác nhận mật khẩu
+                        </label>
+
                         <div class="relative">
+
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock_reset</span>
+                                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">
+                                    lock_reset
+                                </span>
                             </div>
-                            <input class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow" id="confirm_password" placeholder="Nhập lại mật khẩu" required="" type="password"/>
+
+                            <input
+                                id="confirm_password"
+                                type="password"
+                                placeholder="Nhập lại mật khẩu"
+                                class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg"
+                                required
+                            >
+
+                            <button
+                                id="toggleConfirmPassword"
+                                type="button"
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center">
+
+                                <span
+                                    id="confirmPasswordIcon"
+                                    class="material-symbols-outlined">
+                                    visibility_off
+                                </span>
+                            </button>
                         </div>
                     </div>
                 
                     <div class="pt-2">
-                        <button class="w-full py-3 px-4 bg-primary hover:bg-surface-tint text-on-primary font-headline-sm text-headline-sm rounded-lg transition-colors shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-center gap-2" type="submit">
+                        <button
+                            type="submit"
+                            class="w-full py-3 px-4 bg-primary hover:bg-surface-tint text-on-primary font-headline-sm text-headline-sm rounded-lg transition-colors shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-center gap-2">
+
                             Đăng ký tài khoản
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+
                         </button>
                     </div>
                 </form>
@@ -241,16 +302,23 @@
                 </div>
                 
                 <div class="mt-6">
-                    <a
-                        href="https://universal.vneid.gov.vn/"
+                    <button
+                        id="futureVneidBtn"
+                        type="button"
                         class="w-full py-3 px-4 bg-surface-container border border-outline-variant hover:bg-surface-variant text-on-surface font-headline-sm text-headline-sm rounded-lg transition-colors flex items-center justify-center gap-3">
 
                         <span class="material-symbols-outlined text-[20px] text-primary">
                             fingerprint
                         </span>
 
-                        Hoặc đăng ký nhanh qua VNeID
-                    </a>
+                        Đăng ký bằng VNeID (Dự kiến)
+
+                    </button>
+
+                    <p class="text-xs text-center text-gray-500 mt-2">
+                        Khả dụng khi được cơ quan có thẩm quyền cấp quyền kết nối.
+                    </p>
+
                 </div>
                 
                 <div class="mt-8 text-center">
@@ -262,5 +330,6 @@
             </div>
         </div>
     </div>
+    <script src="../js/dangky.js"></script>
 </body>
 </html>

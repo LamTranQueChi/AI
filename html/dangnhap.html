@@ -8,6 +8,8 @@
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="../css/dangnhap.css">
     <style>
             .material-symbols-outlined {
                 font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -195,18 +197,44 @@
                 <!-- Password Input -->
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
-                        <label class="block font-label-md text-label-md text-on-surface-variant" for="password">Mật khẩu</label>
-                        <a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors" href="#">Quên mật khẩu?</a>
+                        <label class="block font-label-md text-label-md text-on-surface-variant" for="password">
+                            Mật khẩu
+                        </label>
+
+                        <a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors"
+                            href="#">
+                            Quên mật khẩu?
+                        </a>
                     </div>
 
                     <div class="relative">
+
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span class="material-symbols-outlined text-outline" data-icon="lock">lock</span>
+                            <span class="material-symbols-outlined text-outline">
+                                lock
+                            </span>
                         </div>
-                        <input class="w-full pl-10 pr-10 py-2.5 bg-surface rounded-lg border border-outline-variant text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors font-body-md text-body-md" id="password" placeholder="••••••••" type="password">
-                        <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface-variant transition-colors focus:outline-none" type="button">
-                            <span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="••••••••"
+                            class="w-full pl-10 pr-10 py-2.5 bg-surface rounded-lg border border-outline-variant text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors font-body-md text-body-md"
+                        >
+
+                        <button
+                            id="togglePassword"
+                            type="button"
+                            class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface-variant">
+
+                            <span
+                                id="passwordIcon"
+                                class="material-symbols-outlined">
+                                visibility_off
+                            </span>
+
                         </button>
+
                     </div>
                 </div>
                     
@@ -239,21 +267,21 @@
                 <!-- VNeID Section -->
             <div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/20 shadow-sm hover:shadow-md transition-shadow">
 
-                <a
-                    href="https://sso.dancuquocgia.gov.vn/auth?response_type=code&redirect_uri=https%3A%2F%2Fdichvucong.bocongan.gov.vn%2Fhethong%2Fsso%2Fvneid&client_id=sso-v01-dvc-web&nonce=a134fad1ba5b78abf7c9f7b9feef36d11372ad04fd55bb38b84bcd8e7d129adf&state=1b3d5fb0437440d3379aa8025602fb34d234e96ec86c708d7df325663fa9241d&scope=openid"
+                <button
+                    id="futureVneidLoginBtn"
+                    type="button"
                     class="w-full flex items-center justify-center gap-3 bg-surface border border-outline-variant hover:bg-surface-variant text-on-surface font-headline-sm text-headline-sm py-3 px-4 rounded-lg transition-colors group">
 
-                    <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
-                        style="font-variation-settings: 'FILL' 1;">
+                    <span class="material-symbols-outlined text-primary">
                         fingerprint
                     </span>
 
-                    <span>Đăng nhập bằng VNeID</span>
-                </a>
+                    <span>Đăng nhập bằng VNeID (Dự kiến)</span>
 
-                <p class="font-label-md text-label-md text-on-surface-variant text-center mt-3 flex items-center justify-center gap-1">
-                    <span class="material-symbols-outlined text-[14px]">verified_user</span>
-                    Được bảo mật bởi hệ thống VNPT eKYC
+                </button>
+
+                <p class="font-label-md text-label-md text-on-surface-variant text-center mt-3">
+                    Tính năng sẽ khả dụng khi được cơ quan có thẩm quyền cấp quyền kết nối.
                 </p>
 
             <!-- Registration Link -->

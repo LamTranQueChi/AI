@@ -1,0 +1,11 @@
+/* Ẩn nút hiện mật khẩu mặc định của Edge */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
+/* Với Chromium mới */
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-textfield-decoration-container {
+    display: none !important;
+}

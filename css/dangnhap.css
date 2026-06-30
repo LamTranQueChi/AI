@@ -1,0 +1,5 @@
+/* Ẩn nút hiện mật khẩu mặc định của Edge */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
