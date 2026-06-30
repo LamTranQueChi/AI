@@ -10,6 +10,7 @@ function loadComponent(id, file) {
 
             if (id === "sidebar-container") {
                 activeMenu();
+                initSidebar();   
             }
 
             if (id === "topbar-container") {
@@ -116,4 +117,41 @@ function updateTopbarUser() {
 
     }
 
+}
+
+//sidebar
+function initSidebar() {
+
+    // Active menu
+    const page = location.pathname.split("/").pop();
+
+    document.querySelectorAll(".sidebar-item").forEach(item => {
+
+        if (item.getAttribute("href") === page) {
+
+            item.style.background = "#166534";
+            item.style.color = "#fff";
+            item.style.fontWeight = "600";
+
+            item.querySelectorAll(".material-symbols-outlined").forEach(icon => {
+                icon.style.color = "#fff";
+            });
+        }
+
+    });
+
+    // Nút Tìm hiểu
+    const btn = document.getElementById("vneidInfoBtn");
+
+    if (btn) {
+
+        btn.addEventListener("click", () => {
+
+            alert(
+             `Phiên bản hiện tại là MVP.
+
+            Chức năng liên kết VNeID là định hướng phát triển trong tương lai và sẽ được triển khai khi hệ thống được cơ quan có thẩm quyền cấp quyền kết nối.`
+                            );
+            });
+    }
 }

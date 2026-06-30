@@ -177,17 +177,18 @@
             </span>
 
             <h3 class="font-semibold mt-2">
-                Liên kết VNeID
+                Liên kết VNeID (Dự kiến)
             </h3>
 
             <p class="text-xs text-gray-500 mb-4">
-                Chưa liên kết
+                Khả dụng khi được cấp quyền kết nối
             </p>
 
             <button
+                id="vneidInfoBtn"
                 class="w-full bg-green-700 text-white rounded-lg py-2 hover:bg-green-800 transition">
 
-                Liên kết ngay
+                Tìm hiểu
 
             </button>
 
@@ -223,31 +224,5 @@
 
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
 
-        const page = location.pathname.split("/").pop();
-
-        console.log("Trang hiện tại:", page);
-
-        document.querySelectorAll(".sidebar-item").forEach(function(item){
-
-            console.log(item.getAttribute("href"));
-
-            if(item.getAttribute("href") === page){
-
-                item.style.background = "#166534";
-                item.style.color = "#fff";
-                item.style.fontWeight = "600";
-
-                item.querySelectorAll(".material-symbols-outlined").forEach(icon=>{
-                    icon.style.color="#fff";
-                });
-
-            }
-
-        });
-
-    });
-    </script>
 </aside>

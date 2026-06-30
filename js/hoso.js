@@ -10,45 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // VNeID
-
-    const status = document.getElementById("vneidStatus");
     const button = document.getElementById("linkVneidBtn");
-
-    function updateVneidUI() {
-        if (localStorage.getItem("vneidLinked") === "true") {
-            status.textContent = "🟢 Đã liên kết VNeID";
-            button.textContent = "Quản lý";
-        } else {
-            status.textContent = "🔴 Chưa liên kết VNeID";
-            button.textContent = "Liên kết ngay";
-        }
-    }
-
-    // Hiển thị trạng thái khi mở trang
-    updateVneidUI();
 
     button.addEventListener("click", () => {
 
-        // Đã liên kết
-        if (localStorage.getItem("vneidLinked") === "true") {
+        alert(
+    `Trong phiên bản MVP của AI Public Assistant, chức năng liên kết VNeID chưa được triển khai.
 
-            alert("Tài khoản đã liên kết VNeID.");
-
-            return;
-        }
-
-        // Chưa liên kết
-        window.open("https://universal.vneid.gov.vn/", "_blank");
-
-        const success = confirm(
-            "Giả lập liên kết VNeID thành công?"
+    Tính năng này sẽ được tích hợp khi hệ thống được cơ quan có thẩm quyền cấp quyền kết nối với VNeID.`
         );
-
-        if (success) {
-            localStorage.setItem("vneidLinked", "true");
-            updateVneidUI();
-        }
 
     });
 
@@ -92,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Hiển thị thông tin tài khoản
+
 // Hiển thị thông tin tài khoản
 const user = JSON.parse(localStorage.getItem("user"));
 const savedAvatar = localStorage.getItem("avatar");
