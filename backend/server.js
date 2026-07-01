@@ -107,33 +107,63 @@ app.post("/login", async (req, res) => {
 // Chat AI
 app.post("/chat", async (req, res) => {
 
-    const question = req.body.question;
-
+    const { question, sessionId } = req.body;
+    //kiem tra dữ liệu gửi lên
+    if (!question) {
+        return res.status(400).json({
+            success: false,
+            message: "Thiếu câu hỏi."
+        });
+    }
     try {
 
         const result = await axios.post(
+
             process.env.SMARTBOT_URL,
+
             {
-                // body SmartBot
+                bot_id: process.env.BOT_ID,
+                sender_id: "web-user",
+                text: question,
+                input_channel: "livechat",
+                session_id: sessionId,
+                metadata: {
+                    button_variables: []
+                }
             },
+
             {
                 headers: {
-                    // Token SmartBot
+                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+                    "Token-id": process.env.TOKEN_ID,
+                    "Token-key": process.env.TOKEN_KEY,
+                    "Content-Type": "application/json"
                 }
             }
+
         );
+
+        console.log("SmartBot Response:");
+        console.log(result.data);
 
         res.json(result.data);
 
     } catch (err) {
 
+        console.error("SmartBot Error:");
+        console.error("Status:", err.response?.status);
+        console.error("Data:", err.response?.data);
+        console.error("Message:", err.message);
+
         res.status(500).json({
-            message: "Lỗi gọi SmartBot"
+            success: false,
+            message: "Không gọi được SmartBot."
         });
 
     }
 
 });
+
 app.get("/users", async (req, res) => {
 
     const users = await db.all("SELECT * FROM users");
@@ -142,12 +172,7 @@ app.get("/users", async (req, res) => {
 
 });
 
-app.get("/", (req, res) => {
-    res.send("SERVER CỦA CHI");
-});
-
 console.log("Đã nạp route /users");
-
 const server = app.listen(3000, () => {
     console.log("Server đang chạy tại http://localhost:3000");
 });

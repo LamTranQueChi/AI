@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../css/chatbot.css">
     
 
-    <script src="../js/tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="flex h-screen overflow-hidden">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <button class="icon-btn">
+                    <button id="refreshBtn" class="icon-btn">
                         <span class="material-symbols-outlined">
                             refresh
                         </span>
@@ -70,7 +70,7 @@
                 </div>
 
                 <!-- Messages -->
-                <div class="chat-messages">
+                <div class="chat-messages" id="chatMessages">
 
                     <!-- AI -->
                     <div class="message ai">
@@ -85,97 +85,35 @@
                             Xin chào Quế Chi 👋<br>
                             Tôi có thể hỗ trợ gì cho bạn hôm nay?
                         </div>
-
                     </div>
-
-
-                    <!-- USER -->
-                    <div class="message user">
-
-                        <div class="bubble">
-                            Tôi muốn làm lại CCCD bị mất thì cần chuẩn bị gì?
-                        </div>
-
-                    </div>
-
-
-                    <!-- AI -->
-                    <div class="message ai">
-
-                        <div class="avatar">
-                            <span class="material-symbols-outlined">
-                                smart_toy
-                            </span>
-                        </div>
-
-                        <div class="bubble">
-
-                            <p class="mb-4">
-                                Hồ sơ cần chuẩn bị:
-                            </p>
-
-                            <ul class="check-list">
-
-                                <li>
-                                    Tờ khai căn cước công dân (CC01)
-                                </li>
-
-                                <li>
-                                    Giấy tờ tùy thân khác (nếu có)
-                                </li>
-
-                                <li>
-                                    Giấy xác nhận của công an địa phương
-                                </li>
-
-                            </ul>
-
-                            <div class="suggest-chips">
-
-                                <button>Lệ phí bao nhiêu?</button>
-
-                                <button>Nộp ở đâu?</button>
-
-                                <button>Thời gian xử lý?</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-                <!-- Suggest -->
-                <div class="quick-question">
-
-                    <button>
-                        Làm CCCD cần giấy tờ gì?
-                    </button>
-
-                    <button>
-                        Đăng ký thường trú online
-                    </button>
-
-                </div>
-
+                <div id="filePreview" class="file-preview hidden"></div>
                 <!-- Input -->
                 <div class="chat-input">
 
                     <!-- Đính kèm -->
-                    <button class="input-btn" title="Đính kèm tài liệu">
-
+                    <button id="attachBtn" class="input-btn" title="Đính kèm tài liệu">
                         <span class="material-symbols-outlined">
                             attach_file
                         </span>
-
                     </button>
-
+                    
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        hidden>
+                    
                     <!-- Ô nhập -->
                     <textarea
                         id="chatInput"
-                        placeholder="Hỏi AI về thủ tục hành chính..."
-                        rows="1">
+                        rows="1"
+                        spellcheck="false"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        lang="vi">
                     </textarea>
 
                     <!-- Voice -->
@@ -201,15 +139,7 @@
                         </span>
 
                     </button>
-
                 </div>
-
-            </div>
-
-
-            <!-- Footer -->
-            <div class="mt-6">
-                <div id="footer-container"></div>
             </div>
 
         </main>

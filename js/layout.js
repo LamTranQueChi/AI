@@ -2,15 +2,19 @@
 // LOAD COMPONENT
 function loadComponent(id, file) {
 
+    const element = document.getElementById(id);
+
+    if (!element) return;
+
     fetch(file)
         .then(response => response.text())
         .then(data => {
 
-            document.getElementById(id).innerHTML = data;
+            element.innerHTML = data;
 
             if (id === "sidebar-container") {
                 activeMenu();
-                initSidebar();   
+                initSidebar();
             }
 
             if (id === "topbar-container") {
@@ -22,11 +26,7 @@ function loadComponent(id, file) {
             }
 
         })
-
-        .catch(error => {
-            console.log(error);
-        });
-
+        .catch(error => console.log(error));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
