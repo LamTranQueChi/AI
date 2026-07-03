@@ -137,7 +137,7 @@ body {
     justify-content: center;
 }
 
-.chat-input button:hover {
+.chat-input button:hover:not(.recording) {
     background: #f3f4f6;
 }
 
@@ -173,6 +173,37 @@ body {
 
 .hidden {
     display: none;
+}
+
+
+.voice-status{
+    height:22px;
+    padding-left:12px;
+    margin-top:6px;
+    font-size:13px;
+    color:#6b7280;
+}
+
+.input-btn.recording{
+    background:#ef4444;
+    color:#fff;
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:0 0 0 0 rgba(239,68,68,.6);
+    }
+
+    70%{
+        box-shadow:0 0 0 18px rgba(239,68,68,0);
+    }
+
+    100%{
+        box-shadow:0 0 0 0 rgba(239,68,68,0);
+    }
+
 }
 
 @media (max-width: 1024px) {

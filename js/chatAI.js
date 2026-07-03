@@ -10,7 +10,12 @@ const chatMessages = document.getElementById("chatMessages");
 const refreshBtn = document.getElementById("refreshBtn");
 const attachBtn = document.getElementById("attachBtn");
 const fileInput = document.getElementById("fileInput");
+const voiceBtn = document.getElementById("voiceBtn");
+const voiceStatus = document.getElementById("voiceStatus");
 
+let mediaRecorder;
+let audioChunks = [];
+let isRecording = false;
 let selectedFile = null;
     // tự tăng chiều cao textarea
     textarea.addEventListener("input", () => {
@@ -252,3 +257,116 @@ fileInput.addEventListener("change", () => {
 
 // Khi mở trang, tải lịch sử chat
 loadHistory();
+voiceBtn.addEventListener("click", toggleRecording);
+
+async function toggleRecording() {
+
+    if (!isRecording) {
+
+        try {
+
+            const stream = await navigator.mediaDevices.getUserMedia({
+                audio: true
+            });
+
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            mediaRecorder.ondataavailable = (e) => {
+                audioChunks.push(e.data);
+            };
+
+            mediaRecorder.onstop = async () => {
+
+                const audioBlob = new Blob(audioChunks, {
+                    type: "audio/webm"
+                });
+
+                await sendVoice(audioBlob);
+                stream.getTracks().forEach(track => track.stop());
+
+            };
+
+            mediaRecorder.start();
+            isRecording = true;
+            voiceBtn.classList.add("recording");
+            voiceBtn.innerHTML = `
+                <span class="material-symbols-outlined">
+                    mic
+                </span>
+            `;
+
+        // Tự dừng sau 5 giây
+        setTimeout(() => {
+
+            if (isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+                voiceBtn.classList.remove("recording");
+                voiceBtn.innerHTML = `
+                    <span class="material-symbols-outlined">
+                        mic
+                    </span>
+                `;
+            }
+
+        }, 5000);
+                    
+        } catch (err) {
+
+            alert("Không thể sử dụng microphone.");
+
+            console.error(err);
+
+        }
+
+    } else {
+
+        mediaRecorder.stop();
+        isRecording = false;
+        voiceBtn.innerHTML = `
+            <span class="material-symbols-outlined">
+                mic
+            </span>
+        `;
+    }
+}
+
+async function sendVoice(audioBlob) {
+    console.log("Đã gọi sendVoice");
+
+    const formData = new FormData();
+    formData.append("audioFile", audioBlob, "voice.webm");
+
+    console.log("Đang gửi request tới backend...");
+
+    addLoading();
+
+    try {
+        const res = await fetch("http://localhost:3000/speech-to-text", {
+            method: "POST",
+            body: formData
+        });
+
+        console.log("Status:", res.status);
+
+        const data = await res.json();
+        removeLoading();
+
+        console.log("STT Response:", data);
+
+        const text = data.text || "";
+
+        if (!text) {
+            addMessage("Không nhận dạng được giọng nói.", "ai");
+            return;
+        }
+
+        textarea.value = text;
+        sendMessage();
+
+    } catch (err) {
+        removeLoading();
+        console.error("Fetch lỗi:", err);
+        addMessage("Không thể nhận dạng giọng nói.", "ai");
+    }
+}

@@ -4,8 +4,14 @@ const initDB = require("./database");
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
-
+const multer = require("multer");
 const app = express();
+const upload = multer({
+    storage: multer.memoryStorage()
+});
+
+const FormData = require("form-data");
+const crypto = require("crypto");
 
 let db;
 
@@ -116,7 +122,9 @@ app.post("/chat", async (req, res) => {
         });
     }
     try {
-
+        console.log("Token ID:", process.env.TOKEN_ID);
+        console.log("Token KEY:", process.env.TOKEN_KEY);
+        console.log("Access Token:", process.env.ACCESS_TOKEN?.substring(0, 20) + "...");
         const result = await axios.post(
 
             process.env.SMARTBOT_URL,
@@ -150,10 +158,17 @@ app.post("/chat", async (req, res) => {
 
     } catch (err) {
 
-        console.error("SmartBot Error:");
+        console.error("===== SMARTVOICE ERROR =====");
         console.error("Status:", err.response?.status);
-        console.error("Data:", err.response?.data);
-        console.error("Message:", err.message);
+
+        console.error("Headers:");
+        console.error(err.response?.headers);
+
+        console.error("Data:");
+        console.error(JSON.stringify(err.response?.data, null, 2));
+
+        console.error("Message:");
+        console.error(err.message);
 
         res.status(500).json({
             success: false,
@@ -162,6 +177,71 @@ app.post("/chat", async (req, res) => {
 
     }
 
+});
+
+app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
+    try {
+
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: "Chưa có file audio."
+            });
+        }
+        const sessionId = crypto.randomUUID();
+
+        console.log("===== STT REQUEST =====");
+        console.log("Session:", sessionId);
+        console.log("Tên file:", req.file.originalname);
+        console.log("Mime:", req.file.mimetype);
+        console.log("Kích thước:", req.file.size);
+
+        const form = new FormData();
+
+        form.append("audioFile", req.file.buffer, {
+            filename: req.file.originalname,
+            contentType: req.file.mimetype
+        });
+
+        form.append("clientSession", sessionId);
+
+        console.log("===== GỬI LÊN VNPT =====");
+        console.log("URL:", process.env.STT_URL);
+        console.log("Session:", sessionId);
+        console.log("Mime:", req.file.mimetype);
+        console.log("Size:", req.file.size);
+        const result = await axios.post(
+            process.env.STT_URL,
+            form,
+            {
+                headers: {
+                    ...form.getHeaders(),
+                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+                    "Token-id": process.env.TOKEN_ID,
+                    "Token-key": process.env.TOKEN_KEY
+                },
+                maxBodyLength: Infinity,
+                maxContentLength: Infinity
+            }
+        );
+
+        console.log("SmartVoice Response:");
+        console.log(result.data);
+
+        res.json(result.data);
+
+    } catch (err) {
+
+        console.error("SmartVoice Error:");
+        console.error(err.response?.status);
+        console.error(err.response?.data);
+        console.error(err.message);
+
+        res.status(500).json({
+            success: false,
+            message: "Không gọi được SmartVoice STT"
+        });
+    }
 });
 
 app.get("/users", async (req, res) => {
