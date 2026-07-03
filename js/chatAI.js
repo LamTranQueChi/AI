@@ -352,17 +352,30 @@ async function sendVoice(audioBlob) {
         const data = await res.json();
         removeLoading();
 
-        console.log("STT Response:", data);
+        console.log("STT Response:", JSON.stringify(data, null, 2));
 
         const text = data.text || "";
+
+        console.log("TEXT =", text);
 
         if (!text) {
             addMessage("Không nhận dạng được giọng nói.", "ai");
             return;
         }
 
+        // Đưa văn bản vào ô nhập
         textarea.value = text;
-        sendMessage();
+
+        // Tự tăng chiều cao textarea
+        textarea.style.height = "40px";
+        textarea.style.height = textarea.scrollHeight + "px";
+
+        // Đưa con trỏ xuống cuối
+        textarea.focus();
+        textarea.setSelectionRange(
+            textarea.value.length,
+            textarea.value.length
+        );
 
     } catch (err) {
         removeLoading();
