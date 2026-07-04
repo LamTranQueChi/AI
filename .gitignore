@@ -1,2 +1,5 @@
 node_modules/
 backend/.env
+backend/database.db
+*.webm
+*.wav

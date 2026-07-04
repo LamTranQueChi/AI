@@ -1,1 +1,0 @@
-// Tạo embedding từ văn bản

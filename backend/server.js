@@ -16,18 +16,29 @@ const os = require("os");
 const path = require("path");
 const FormData = require("form-data");
 const crypto = require("crypto");
+const chatRouter = require("./routers/chat");
+const conversationsRouter =
+    require("./routers/conversations");
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 let db;
-
-(async () => {
-    db = await initDB();
-})();
+let server;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({
+    limit: "10mb"
+}));
 
+app.use(express.urlencoded({
+    extended: true,
+    limit: "10mb"
+}));
+app.use("/chat", chatRouter);
+app.use(
+    "/conversations",
+    conversationsRouter
+);
 
 // Test server
 app.get("/", (req, res) => {
@@ -116,75 +127,8 @@ app.post("/login", async (req, res) => {
 
 });
 
-// Chat AI
-app.post("/chat", async (req, res) => {
 
-    const { question, sessionId } = req.body;
-    //kiem tra dữ liệu gửi lên
-    if (!question) {
-        return res.status(400).json({
-            success: false,
-            message: "Thiếu câu hỏi."
-        });
-    }
-    try {
-        console.log("Token ID:", process.env.TOKEN_ID);
-        console.log("Token KEY:", process.env.TOKEN_KEY);
-        console.log("Access Token:", process.env.ACCESS_TOKEN?.substring(0, 20) + "...");
-        const result = await axios.post(
-
-            process.env.SMARTBOT_URL,
-
-            {
-                bot_id: process.env.BOT_ID,
-                sender_id: "web-user",
-                text: question,
-                input_channel: "livechat",
-                session_id: sessionId,
-                metadata: {
-                    button_variables: []
-                }
-            },
-
-            {
-                headers: {
-                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
-                    "Token-id": process.env.TOKEN_ID,
-                    "Token-key": process.env.TOKEN_KEY,
-                    "Content-Type": "application/json"
-                }
-            }
-
-        );
-
-        console.log("SmartBot Response:");
-        console.log(result.data);
-
-        res.json(result.data);
-
-    } catch (err) {
-
-        console.error("===== SMARTVOICE ERROR =====");
-        console.error("Status:", err.response?.status);
-
-        console.error("Headers:");
-        console.error(err.response?.headers);
-
-        console.error("Data:");
-        console.error(JSON.stringify(err.response?.data, null, 2));
-
-        console.error("Message:");
-        console.error(err.message);
-
-        res.status(500).json({
-            success: false,
-            message: "Không gọi được SmartBot."
-        });
-
-    }
-
-});
-
+//Speech to text
 app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
 
     let webmPath = "";
@@ -209,7 +153,10 @@ app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
 
         // Đường dẫn file tạm
         webmPath = path.join(os.tmpdir(), `${sessionId}.webm`);
-        wavPath = path.join(os.tmpdir(), `${sessionId}.wav`);
+        wavPath = path.join(
+            os.tmpdir(),
+            `${sessionId}.wav`
+        );
 
         // Lưu file webm
         fs.writeFileSync(webmPath, req.file.buffer);
@@ -220,9 +167,15 @@ app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
         await new Promise((resolve, reject) => {
 
             ffmpeg(webmPath)
+                .noVideo()
                 .audioCodec("pcm_s16le")
                 .audioFrequency(16000)
                 .audioChannels(1)
+                .audioFilters([
+                    "highpass=f=80",
+                    "lowpass=f=7600",
+                    "loudnorm"
+                ])
                 .format("wav")
                 .on("end", () => {
 
@@ -244,6 +197,17 @@ app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
         const wavBuffer = fs.readFileSync(wavPath);
 
         console.log("Kích thước WAV:", wavBuffer.length);
+        const duration = await new Promise((resolve, reject) => {
+            ffmpeg.ffprobe(wavPath, (err, metadata) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve(metadata.format.duration);
+            });
+        });
+        console.log("⏱️ THỜI LƯỢNG WAV:", duration, "giây");
 
         const form = new FormData();
 
@@ -260,23 +224,14 @@ app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
         form.append("model", "offline");
         form.append("verbatimTranscripts", "true");
 
-        form.append(
-            "customConfiguration",
-            JSON.stringify({
-                invert_text: "1",
-                capt_punch_recovery: "1"
-            })
-        );
+       //form.append(
+            //"customConfiguration",
+            //JSON.stringify({
+               // invert_text: "1",
+               // capt_punch_recovery: "1"
+            //})
+        //);
 
-        console.log("===== GỬI LÊN VNPT =====");
-        console.log("URL:", process.env.STT_URL);
-        console.log("===== HEADER STT =====");
-        console.log({
-            Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
-            "Token-id": process.env.TOKEN_ID,
-            "Token-key": process.env.TOKEN_KEY,
-            ...form.getHeaders()
-        });
         const result = await axios.post(
             process.env.STT_URL,
             form,
@@ -301,25 +256,35 @@ app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
             })
         );
 
-        // Lấy transcript từ kết quả SmartVoice
-        const transcript =
-    result.data.object?.results?.[0]?.alternatives?.[0]?.transcript ?? "";
+        // Lấy TẤT CẢ các đoạn transcript SmartVoice trả về
+        const results = result.data?.object?.results || [];
 
-    if (!transcript) {
-        console.log("VNPT không trả transcript:");
-        console.log(JSON.stringify(result.data, null, 2));
+        const transcript = results
+            .map(item => {
+                return item?.alternatives?.[0]?.transcript || "";
+            })
+            .filter(text => text.trim() !== "")
+            .join(" ")
+            .trim();
+
+        console.log("===== FULL TRANSCRIPT =====");
+        console.log(transcript);
+
+        if (!transcript) {
+            console.log("VNPT không trả transcript:");
+            console.log(JSON.stringify(result.data, null, 2));
+
+            return res.json({
+                success: false,
+                message: "VNPT không trả transcript",
+                raw: result.data
+            });
+        }
 
         return res.json({
-            success: false,
-            message: "VNPT không trả transcript",
-            raw: result.data
+            success: true,
+            text: transcript
         });
-    }
-
-    return res.json({
-        success: true,
-        text: transcript
-    });
 
     } catch (err) {
 
@@ -360,6 +325,76 @@ app.post("/speech-to-text", upload.single("audioFile"), async (req, res) => {
 
 });
 
+// Text To Speech
+app.post("/text-to-speech", async (req, res) => {
+
+    const { text } = req.body;
+
+    if (!text || !text.trim()) {
+        return res.status(400).json({
+            success: false,
+            message: "Thiếu nội dung cần đọc."
+        });
+    }
+
+    try {
+
+        console.log("===== TTS REQUEST =====");
+        console.log("Text:", text);
+
+        const result = await axios.post(
+            process.env.TTS_URL,
+            {
+                text: text,
+                model: "news",
+                region: "female_north",
+                speed: "1",
+                domain: "general"
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+                    "Token-id": process.env.TOKEN_ID,
+                    "Token-key": process.env.TOKEN_KEY,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        console.log("===== TTS RESPONSE =====");
+        console.log(JSON.stringify(result.data, null, 2));
+
+        const audioUrl =
+            result.data?.object?.playlist?.[0]?.audio_link;
+
+        if (!audioUrl) {
+            return res.status(500).json({
+                success: false,
+                message: "SmartVoice không trả về audio.",
+                raw: result.data
+            });
+        }
+
+        return res.json({
+            success: true,
+            audioUrl: audioUrl
+        });
+
+    } catch (err) {
+
+        console.error("===== TTS ERROR =====");
+        console.error("Status:", err.response?.status);
+        console.error("Data:", err.response?.data);
+        console.error("Message:", err.message);
+
+        return res.status(500).json({
+            success: false,
+            message: "Không gọi được SmartVoice TTS."
+        });
+    }
+
+});
+
 app.get("/users", async (req, res) => {
 
     const users = await db.all("SELECT * FROM users");
@@ -369,17 +404,47 @@ app.get("/users", async (req, res) => {
 });
 
 console.log("Đã nạp route /users");
-const server = app.listen(3000, () => {
-    console.log("Server đang chạy tại http://localhost:3000");
-    
-    setInterval(() => {
-    console.log("Server vẫn đang chạy...", new Date().toLocaleTimeString());
-}, 5000);
-});
 
-server.on("close", () => {
-    console.log("Server đã đóng!");
-});
+async function startServer() {
+    try {
+        db = await initDB();
+
+        // Cho conversations router dùng SQLite
+        app.locals.db = db;
+
+        server = app.listen(3000, () => {
+            console.log(
+                "Server đang chạy tại http://localhost:3000"
+            );
+
+            console.log(
+                "Database đã sẵn sàng cho routes."
+            );
+        });
+
+        server.on("error", (err) => {
+            console.error(
+                "SERVER ERROR:",
+                err
+            );
+        });
+
+        server.on("close", () => {
+            console.log(
+                "Server đã đóng!"
+            );
+        });
+
+    } catch (error) {
+        console.error(
+            "Không thể khởi động server:",
+            error
+        );
+    }
+}
+
+startServer();
+
 
 process.on("exit", (code) => {
     console.log("Node thoát với mã:", code);

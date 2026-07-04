@@ -27,8 +27,6 @@
     <link rel="stylesheet" href="../css/chatAI.css">
     <link rel="stylesheet" href="../css/chatbot.css">
     
-
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="flex h-screen overflow-hidden">
@@ -61,12 +59,42 @@
                         </div>
                     </div>
 
-                    <button id="refreshBtn" class="icon-btn">
-                        <span class="material-symbols-outlined">
-                            refresh
-                        </span>
-                    </button>
+                    <div class="chat-header-actions">
 
+                        <!-- Lịch sử trò chuyện -->
+                        <button id="historyBtn"
+                                class="header-action-btn"
+                                type="button">
+                            <span class="material-symbols-outlined">
+                                history
+                            </span>
+                            <span>Lịch sử</span>
+                        </button>
+
+                        <!-- Cuộc trò chuyện mới -->
+                        <button id="newChatBtn"
+                                class="header-action-btn"
+                                type="button"
+                                title="Cuộc trò chuyện mới">
+
+                            <span class="material-symbols-outlined">
+                                add_comment
+                            </span>
+                            <span>Chat mới</span>
+                        </button>
+
+
+                        <!-- Làm mới -->
+                        <button id="refreshBtn"
+                                class="header-action-btn"
+                                type="button"
+                                title="Làm mới">
+                            <span class="material-symbols-outlined">
+                                refresh
+                            </span>
+                            <span>Đặt lại</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Messages -->
@@ -89,11 +117,30 @@
                 </div>
 
                 <div id="filePreview" class="file-preview hidden"></div>
+                <!--Hướng dẫn sử dụng giọng nói-->
+                <div class="voice-guide-bar">
+                    <button
+                        id="voiceHelpBtn"
+                        class="voice-guide-link"
+                        type="button"
+                    >
+                        <span class="material-symbols-outlined">
+                            help_outline
+                        </span>
+
+                        Hướng dẫn sử dụng giọng nói
+                    </button>
+                </div>
+
                 <!-- Input -->
                 <div class="chat-input">
 
                     <!-- Đính kèm -->
-                    <button id="attachBtn" class="input-btn" title="Đính kèm tài liệu">
+                    <button 
+                        id="attachBtn" 
+                        class="input-btn" 
+                        type="button"
+                        title="Đính kèm tài liệu">
                         <span class="material-symbols-outlined">
                             attach_file
                         </span>
@@ -103,8 +150,9 @@
                         type="file"
                         id="fileInput"
                         accept=".pdf,.jpg,.jpeg,.png"
-                        hidden>
-                    
+                        hidden
+                    >
+                                            
                     <!-- Ô nhập -->
                     <textarea
                         id="chatInput"
@@ -113,25 +161,27 @@
                         autocomplete="off"
                         autocorrect="off"
                         autocapitalize="off"
-                        lang="vi">
+                        lang="vi"
+                        placeholder="Nhập câu hỏi của bạn...">
                     </textarea>
-
+                
                     <!-- Voice -->
                     <button
                         id="voiceBtn"
                         class="input-btn"
+                        type="button"
                         title="Trò chuyện bằng giọng nói">
 
                         <span class="material-symbols-outlined">
                             mic
                         </span>
-
                     </button>
 
                     <!-- Gửi -->
                     <button
                         id="sendBtn"
                         class="send-btn"
+                        type="button"
                         title="Gửi">
 
                         <span class="material-symbols-outlined">
@@ -139,18 +189,161 @@
                         </span>
                     </button>
                 </div>
-                <div id="voiceStatus" class="voice-status"></div>
+                <div id="voiceStatus" 
+                     class="voice-status">
+                </div>
             </div>
 
         </main>
 
+            <!-- PANEL LỊCH SỬ CHAT -->
+            <div id="historyOverlay"
+                class="history-overlay">
+            </div>
+
+
+            <aside id="historyPanel"
+                class="history-panel">
+
+                <!-- Header -->
+                <div class="history-panel-header">
+
+                    <div class="history-title">
+                        <span class="material-symbols-outlined">
+                            history
+                        </span>
+
+                        <h2>Lịch sử trò chuyện</h2>
+                    </div>
+
+
+                    <button id="closeHistoryBtn"
+                            class="history-close-btn"
+                            type="button">
+
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- Tìm kiếm -->
+                <div class="history-search">
+
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+
+                    <input
+                        id="historySearch"
+                        type="text"
+                        placeholder="Tìm cuộc trò chuyện..."
+                    >
+
+                </div>
+
+
+                <!-- Danh sách cuộc trò chuyện -->
+                <div id="conversationList"
+                    class="conversation-list">
+
+                    <!-- JS sẽ render dữ liệu ở đây -->
+
+                </div>
+            </aside>
+
     </div>
+
+    <!-- MODAL HƯỚNG DẪN GHI ÂM -->
+    <div id="voiceHelpModal" class="voice-help-modal hidden">
+
+        <div class="voice-help-box">
+
+            <div class="voice-help-header">
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        record_voice_over
+                    </span>
+
+                    <h3>Hướng dẫn sử dụng giọng nói</h3>
+                </div>
+
+                <button
+                    id="closeVoiceHelp"
+                    class="voice-help-close"
+                    type="button"
+                    aria-label="Đóng"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="voice-help-content">
+
+                <div class="help-step">
+                    <span class="step-number">1</span>
+
+                    <div>
+                        <strong>Bắt đầu ghi âm</strong>
+                        <p>Nhấn vào biểu tượng mic để bắt đầu ghi âm.</p>
+                    </div>
+                </div>
+
+
+                <div class="help-step">
+                    <span class="step-number">2</span>
+
+                    <div>
+                        <strong>Nói rõ ràng và từ tốn</strong>
+                        <p>
+                            Nói với tốc độ vừa phải và hạn chế
+                            tiếng ồn xung quanh.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="help-step">
+                    <span class="step-number">3</span>
+
+                    <div>
+                        <strong>Hoàn tất ghi âm</strong>
+                        <p>
+                            Sau khi nói xong, nhấn lại nút mic
+                            để kết thúc ghi âm.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="help-step">
+                    <span class="step-number">4</span>
+
+                    <div>
+                        <strong>Kiểm tra nội dung</strong>
+                        <p>
+                            Kiểm tra văn bản trong ô nhập
+                            trước khi nhấn Gửi.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <!-- JS -->
     <script src="../js/layout.js"></script>
-    <script src="../js/chatAI.js"></script>
-    <script src="../js/chatbot.js"></script>
+    <script src="../js/chatAI.js?v=4"></script>
 
-</body>
-
+</body>    
 </html>
