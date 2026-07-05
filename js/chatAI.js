@@ -483,17 +483,17 @@ async function sendMessage() {
         speakText(reply);
 
         // Sau đó mới lưu DB
-        await ensureConversation();
+        //await ensureConversation();
 
-        await saveMessageToDB(
-            "user",
-            question
-        );
+        //await saveMessageToDB(
+           // "user",
+           // question
+        //);
 
-        await saveMessageToDB(
-            "assistant",
-            reply
-        );
+        //await saveMessageToDB(
+           // "assistant",
+          //  reply
+        //);
 
     } catch (error) {
     removeLoading();
