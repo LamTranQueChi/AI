@@ -4,9 +4,9 @@ function loadComponent(id, file) {
 
     const element = document.getElementById(id);
 
-    if (!element) return;
+    if (!element) return Promise.resolve();
 
-    fetch(file)
+    return fetch(file)
         .then(response => response.text())
         .then(data => {
 
@@ -19,7 +19,6 @@ function loadComponent(id, file) {
 
             if (id === "topbar-container") {
                 updateTopbarUser();
-                initMobileMenu();
             }
 
             if (id === "chat-container") {
@@ -30,13 +29,17 @@ function loadComponent(id, file) {
         .catch(error => console.log(error));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    loadComponent("sidebar-container", "components/sidebar.html");
-    loadComponent("topbar-container", "components/topbar.html");
-    loadComponent("chat-container", "components/chatbot.html");
-    loadComponent("footer-container", "components/footer.html");
+document.addEventListener("DOMContentLoaded", async () => {
 
+    await Promise.all([
+        loadComponent("sidebar-container", "components/sidebar.html"),
+        loadComponent("topbar-container", "components/topbar.html"),
+        loadComponent("chat-container", "components/chatbot.html"),
+        loadComponent("footer-container", "components/footer.html")
+    ]);
+
+    initMobileMenu();
 });
 
 
