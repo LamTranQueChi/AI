@@ -791,19 +791,22 @@ body {
     }
 
     .chat-wrapper {
-        height: calc(100dvh - 72px);
+        height: calc(100dvh - 80px);
         min-height: 0;
         border-radius: 12px;
     }
 
     .chat-header {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px 14px;
     }
 
     .chat-header > .flex {
+        width: 100%;
         min-width: 0;
         gap: 8px;
     }
@@ -821,35 +824,30 @@ body {
 
     .chat-header p {
         margin: 3px 0 0;
-        color: rgba(255, 255, 255, 0.82);
         font-size: 11px;
-        font-weight: 400;
         line-height: 1.35;
     }
 
     .chat-header-actions {
-         width: auto;
+        width: 100%;
         min-width: 0;
-        height: 40px;
-        padding: 0 4px;
+
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px;
+    }
+
+    .header-action-btn {
+        width: 100%;
+        min-width: 0;
+        height: 36px;
+        padding: 0 3px;
 
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 24px;
 
-        white-space: nowrap;
-
-        font-size: 11px;
-    }
-
-    .header-action-btn {
-        width: auto;
-        min-width: max-content;
-        height: 38px;
-        padding: 0 4px;
-        gap: 4px;
-        flex: none;
+        gap: 3px;
         border-radius: 8px;
         font-size: 11px;
         white-space: nowrap;
@@ -858,6 +856,7 @@ body {
     .header-action-btn span {
         white-space: nowrap;
     }
+
     .header-action-btn .material-symbols-outlined {
         flex-shrink: 0;
         font-size: 17px;
