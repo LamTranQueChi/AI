@@ -52,7 +52,7 @@ console.log("KIỂM TRA DOM:", {
     voiceStatus
 });
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://ten-backend-cua-ban.onrender.com";
 
 let currentAudio = null;
 let mediaRecorder = null;

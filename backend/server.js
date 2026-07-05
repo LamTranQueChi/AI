@@ -412,34 +412,23 @@ async function startServer() {
         // Cho conversations router dùng SQLite
         app.locals.db = db;
 
-        server = app.listen(3000, () => {
-            console.log(
-                "Server đang chạy tại http://localhost:3000"
-            );
+        const PORT = process.env.PORT || 3000;
 
-            console.log(
-                "Database đã sẵn sàng cho routes."
-            );
+        server = app.listen(PORT, "0.0.0.0", () => {
+            console.log(`Server đang chạy tại port ${PORT}`);
+            console.log("Database đã sẵn sàng cho routes.");
         });
 
         server.on("error", (err) => {
-            console.error(
-                "SERVER ERROR:",
-                err
-            );
+            console.error("SERVER ERROR:", err);
         });
 
         server.on("close", () => {
-            console.log(
-                "Server đã đóng!"
-            );
+            console.log("Server đã đóng!");
         });
 
     } catch (error) {
-        console.error(
-            "Không thể khởi động server:",
-            error
-        );
+        console.error("Không thể khởi động server:", error);
     }
 }
 

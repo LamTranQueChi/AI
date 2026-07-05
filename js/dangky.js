@@ -70,22 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const response = await fetch("http://localhost:3000/register", {
+            const response = await fetch(
+                "https://govtech4u-api.onrender.com/register",
+                {
+                    method: "POST",
 
-                method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    fullName,
-                    email,
-                    phone,
-                    password
-                })
-
-            });
+                    body: JSON.stringify({
+                        fullName,
+                        email,
+                        phone,
+                        password
+                    })
+                }
+            );
 
             const data = await response.json();
 
