@@ -23,3 +23,87 @@
 .sidebar-bottom-item:hover{
     background:#f3f4f6;
 }
+
+/* Nút đóng sidebar */
+.close-sidebar-btn {
+    display: none;
+}
+
+
+/* TABLET + ĐIỆN THOẠI */
+@media (max-width: 1023px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 288px;
+        max-width: 85vw;
+        height: 100vh;
+
+        background: white;
+        z-index: 1000;
+
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+
+        overflow-y: auto;
+    }
+
+    /* Mở sidebar */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* Nút X */
+    .close-sidebar-btn {
+        display: flex;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+
+        width: 36px;
+        height: 36px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        border-radius: 50%;
+        background: #f3f4f6;
+
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .close-sidebar-btn:hover {
+        background: #e5e7eb;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+
+/* RIÊNG ĐIỆN THOẠI */
+@media (max-width: 640px) {
+
+    .sidebar {
+        width: 260px;
+    }
+
+    .sidebar-item {
+        gap: 10px;
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .sidebar-bottom-item {
+        gap: 10px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}

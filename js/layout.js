@@ -19,6 +19,7 @@ function loadComponent(id, file) {
 
             if (id === "topbar-container") {
                 updateTopbarUser();
+                initMobileMenu();
             }
 
             if (id === "chat-container") {
@@ -67,7 +68,6 @@ function initChat() {
 // ACTIVE MENU
 
 function activeMenu() {
-
     const currentPage = window.location.pathname
         .split("/")
         .pop()
@@ -154,4 +154,34 @@ function initSidebar() {
                             );
             });
     }
+}
+
+function initMobileMenu() {
+    const menuBtn = document.getElementById("menuToggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (!menuBtn || !sidebar) return;
+
+    // Mở / đóng bằng nút menu
+    menuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+    });
+
+    // Đóng bằng nút X trong sidebar
+    const closeBtn = document.getElementById("closeSidebar");
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+        });
+    }
+
+    // Bấm mục menu thì đóng sidebar
+    document.querySelectorAll(".sidebar-item").forEach(item => {
+        item.addEventListener("click", () => {
+            if (window.innerWidth <= 1023) {
+                sidebar.classList.remove("active");
+            }
+        });
+    });
 }

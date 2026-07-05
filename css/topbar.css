@@ -5,3 +5,51 @@
 .topbar input{
     outline:none;
 }
+
+/* TABLET - IPAD*/
+@media (max-width: 1024px) {
+
+    .topbar {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    #menuToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+}
+
+
+/*  ĐIỆN THOẠI */
+@media (max-width: 640px) {
+
+    .topbar {
+        height: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #menuToggle {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    #menuToggle .material-symbols-outlined {
+        font-size: 26px;
+    }
+
+    .topbar .flex.items-center.gap-4 {
+        gap: 6px;
+    }
+
+    #topbarAvatar {
+        width: 36px;
+        height: 36px;
+    }
+}

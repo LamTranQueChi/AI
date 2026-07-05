@@ -86,19 +86,62 @@
 
 /*  RESPONSIVE */
 
-@media (max-width: 768px) {
+/* TABLET - IPAD */
+@media (min-width: 641px) and (max-width: 1023px) {
+
+    .footer {
+        padding: 20px 24px;
+    }
+
+    .footer-container {
+        gap: 20px;
+    }
+
+    .footer-brand {
+        width: 100%;
+    }
+
+    .footer-brand p {
+        max-width: 450px;
+    }
+
+    .footer-links {
+        gap: 18px;
+    }
+}
+
+
+/* ĐIỆN THOẠI */
+@media (max-width: 640px) {
+
+    .footer {
+        padding: 24px 16px;
+    }
 
     .footer-container {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 20px;
     }
 
     .footer-brand {
         flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+        line-height: 1.5;
     }
 
     .footer-links {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
     }
 
+    .footer-version {
+        justify-content: center;
+    }
 }
