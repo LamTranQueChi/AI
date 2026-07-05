@@ -68,10 +68,11 @@
                         search
                     </span>
 
-                    <input type="text"
-                           placeholder="Nhập tên thủ tục, từ khóa...">
+                    <input id="searchInput"
+                        type="text"
+                        placeholder="Nhập tên thủ tục, từ khóa...">
 
-                    <button>
+                    <button id="searchButton">
                         Tìm kiếm
                     </button>
 
@@ -93,15 +94,35 @@
                     </button>
 
                     <button>
-                        Hộ tịch
+                        Kết hôn
                     </button>
 
                     <button>
-                        Cư trú
+                        Lưu trú
                     </button>
 
                     <button>
-                        Giao thông
+                        Khai sinh & Giám hộ
+                    </button>
+                    
+                    <button>
+                        Hộ kinh doanh
+                    </button>
+
+                    <button>
+                        Hộ kinh doanh
+                    </button>
+
+                    <button>
+                        Giấy lái xe
+                    </button>
+                    
+                    <button>
+                        Trợ cấp
+                    </button>
+
+                    <button>
+                        Dự thi
                     </button>
 
                 </div>
@@ -113,7 +134,7 @@
             <section class="result-header">
 
                 <p>
-                    Hiển thị <strong>12</strong> kết quả phù hợp
+                    Hiển thị <strong>8</strong> kết quả phù hợp
                 </p>
 
                 <select>
@@ -128,7 +149,7 @@
             <!-- RESULT GRID -->
             <section class="result-grid">
 
-                <!-- CARD -->
+                <!-- CARD: Cấp lại thẻ CCCD khi bị mất -->
                 <div class="service-card">
 
                     <div class="card-top">
@@ -179,7 +200,7 @@
 
                     <div class="card-actions">
 
-                        <button class="btn-outline">
+                        <button class="btn-outline" onclick="window.open('../assets/docs/cap_lai_the_CCCD.pdf', '_blank')">
                             Xem chi tiết
                         </button>
 
@@ -192,7 +213,7 @@
                 </div>
 
 
-                <!-- CARD -->
+                <!-- CARD: Khai báo lưu trú  -->
                 <div class="service-card">
 
                     <div class="card-top">
@@ -206,7 +227,7 @@
                         <div>
 
                             <h3>
-                                Đăng ký thường trú
+                                Khai báo lưu trú
                             </h3>
 
                             <span class="service-type">
@@ -243,7 +264,7 @@
 
                     <div class="card-actions">
 
-                        <button class="btn-outline">
+                        <button class="btn-outline" onclick="window.open('../assets/docs/khai_bao_luu_tru.pdf', '_blank')">
                             Xem chi tiết
                         </button>
 
@@ -256,7 +277,7 @@
                 </div>
 
 
-                <!-- CARD -->
+                <!-- CARD: Cấp lại giấy phép lái xe -->
                 <div class="service-card">
 
                     <div class="card-top">
@@ -270,7 +291,7 @@
                         <div>
 
                             <h3>
-                                Đổi giấy phép lái xe
+                                Cấp lại giấy phép lái xe
                             </h3>
 
                             <span class="service-type">
@@ -307,7 +328,374 @@
 
                     <div class="card-actions">
 
-                        <button class="btn-outline">
+                        <button class="btn-outline" onclick="window.open('../assets/docs/cap_lai_giay_phep_lai_xe.pdf', '_blank')">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+                 <!-- CARD: Đăng ký dự thi tốt nghiệp THPT -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon blue">
+                            <span class="material-symbols-outlined">
+                                school
+                            </span>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Đăng ký dự thi tốt nghiệp THPT
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Giáo dục
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            Đơn vị đăng ký dự thi theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            Theo lịch kỳ thi
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline" onclick="window.open('../assets/docs/dang_ky_du_thi_tot_nghiep_thpt.pdf', '_blank')">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD: Đăng ký kết hôn -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon red">
+                            <span class="material-symbols-outlined">
+                                favorite
+                            </span>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Đăng ký kết hôn
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Hộ tịch
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            UBND cấp xã có thẩm quyền
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline" onclick="window.open('../assets/docs/dang_ky_ket_hon.pdf', '_blank')">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD: Đăng ký khai sinh -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon yellow">
+                            <span class="material-symbols-outlined">
+                                child_care
+                            </span>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Đăng ký khai sinh
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Hộ tịch
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            UBND cấp xã có thẩm quyền
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp / Trực tuyến
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline" onclick="window.open('../assets/docs/dang_ky_khai_sinh.pdf', '_blank')">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD: Đăng ký hộ kinh doanh -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon blue">
+                            <span class="material-symbols-outlined">
+                                storefront
+                            </span>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Đăng ký hộ kinh doanh
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Kinh doanh
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            Cơ quan đăng ký kinh doanh cấp xã
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp / Trực tuyến
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline" onclick="window.open('../assets/docs/dang_ky_khai_sinh.pdf', '_blank')">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD: Đăng ký giám hộ -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon yellow">
+                            <span class="material-symbols-outlined">
+                                family_restroom
+                            </span>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Đăng ký giám hộ
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Hộ tịch
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            UBND cấp xã có thẩm quyền
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline"  onclick="window.open('../assets/docs/giam_ho.pdf', '_blank')">
+                            Xem chi tiết
+                        </button>
+
+                        <button class="btn-primary">
+                            AI Tư vấn
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD: Hưởng trợ cấp thất nghiệp -->
+                <div class="service-card">
+
+                    <div class="card-top">
+
+                        <div class="service-icon blue">
+                            <span class="material-symbols-outlined">
+                                payments
+                            </span>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Hưởng trợ cấp thất nghiệp
+                            </h3>
+
+                            <span class="service-type">
+                                Lĩnh vực: Trợ cấp
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="service-info">
+
+                        <p>
+                            <strong>Cơ quan:</strong>
+                            Trung tâm Dịch vụ việc làm
+                        </p>
+
+                        <p>
+                            <strong>Lệ phí:</strong>
+                            Không thu lệ phí
+                        </p>
+
+                        <p>
+                            <strong>Thời gian:</strong>
+                            Theo quy định
+                        </p>
+
+                        <p>
+                            <strong>Hình thức:</strong>
+                            Trực tiếp
+                        </p>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button class="btn-outline"
+                                onclick="window.open('../assets/docs/huong_tro_cap_that_nghiep.pdf', '_blank')">
                             Xem chi tiết
                         </button>
 
@@ -324,27 +712,21 @@
 
             <!-- PAGINATION -->
             <section class="pagination">
-
-                <button>
+                <button id="prevPage">
                     <span class="material-symbols-outlined">
                         chevron_left
                     </span>
                 </button>
 
-                <button class="active">1</button>
+                <button class="page-btn active" data-page="1">1</button>
+                <button class="page-btn" data-page="2">2</button>
+                <button class="page-btn" data-page="3">3</button>
 
-                <button>2</button>
-
-                <button>3</button>
-
-                <span>...</span>
-
-                <button>
+                <button id="nextPage">
                     <span class="material-symbols-outlined">
                         chevron_right
                     </span>
                 </button>
-
             </section>
 
 
