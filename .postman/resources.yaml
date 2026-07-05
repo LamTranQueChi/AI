@@ -1,0 +1,8 @@
+# Use this workspace to collaborate
+workspace:
+  id: d870d5f4-f037-4734-8d56-864944a222fa
+
+localResources:
+  specs:
+    - ../backend/proto/vnpt_asr.proto
+    - ../backend/proto/vnpt_audio.proto
