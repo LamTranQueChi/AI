@@ -1,6 +1,10 @@
 require("dotenv").config();
 
-const initDB = require("./database");
+let initDB = null;
+
+if (process.env.DISABLE_DB !== "true") {
+    initDB = require("./database");
+}
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -403,20 +407,21 @@ app.get("/users", async (req, res) => {
 
 });
 
-console.log("Đã nạp route /users");
-
 async function startServer() {
     try {
-        db = await initDB();
+        if (process.env.DISABLE_DB !== "true") {
+            db = await initDB();
+            app.locals.db = db;
 
-        // Cho conversations router dùng SQLite
-        app.locals.db = db;
+            console.log("Database đã sẵn sàng cho routes.");
+        } else {
+            console.log("SQLite đang tạm tắt trên môi trường deploy.");
+        }
 
         const PORT = process.env.PORT || 3000;
 
         server = app.listen(PORT, "0.0.0.0", () => {
             console.log(`Server đang chạy tại port ${PORT}`);
-            console.log("Database đã sẵn sàng cho routes.");
         });
 
         server.on("error", (err) => {
